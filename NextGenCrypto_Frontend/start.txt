@@ -1,0 +1,26 @@
+cd NextGenCrypto
+yarn (nur beim ersten mal)
+yarn dev
+
+
+
+
+
+
+<Routes>
+            <Route path='/about' element={<AboutPage/>} />
+            <Route path='/' element={<IndexPage/>} />
+          </Routes>
+
+
+
+
+
+<IconButton
+                        size="large"
+                        edge="start"
+                        color="inherit"
+                        aria-label="menu"
+                        sx={{ mr: 2 }}>
+                        <MenuIcon></MenuIcon>
+                    </IconButton>
