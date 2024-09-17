@@ -41,7 +41,7 @@ export const Shell = (props: ShellProps) => {
                    
                     <Box sx={{ position: 'absolute', left: 400 }}>
                             <img 
-                                src="/src/image/pqci_image002_transparent.png" 
+                                src="/pqci_image002_transparent.png" 
                                 alt="Logo" 
                                 style={{ width: '50px', height: '50px', marginRight: '16px' }} 
                             />
