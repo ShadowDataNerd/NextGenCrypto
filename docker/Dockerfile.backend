@@ -1,0 +1,22 @@
+# Base image mit Python 3.11 (oder die Version, die dein Projekt erfordert)
+FROM python:3.11
+
+COPY  . /app
+# Setze das Arbeitsverzeichnis innerhalb des Containers
+WORKDIR /app
+
+# Kopiere die Datei requirements.txt in das Arbeitsverzeichnis
+COPY requirements.txt .
+
+# Installiere die Abhängigkeiten
+RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install .
+
+# Kopiere den gesamten Inhalt des Backend-Projekts in das Container-Arbeitsverzeichnis
+COPY . .
+
+EXPOSE 5555
+
+
+# Standardbefehl, um die Anwendung zu starten (dies könnte von deinem Framework abhängen, z. B. Flask, Django, etc.)
+CMD ["uvicorn", "main:app", "--host","0.0.0.0","--port","5555"]  
