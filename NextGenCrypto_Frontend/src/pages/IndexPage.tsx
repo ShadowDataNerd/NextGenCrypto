@@ -144,7 +144,7 @@ const IndexPage = () =>{
             <Typography sx={{ display: 'flex', marginBottom: 3, padding: 2 }}>
                 <p>
                
-                Test!!!! Stellen Sie sich eine Welt vor, in der die Kryptographie, die wir heute kennen und der wir vertrauen, 
+                Stellen Sie sich eine Welt vor, in der die Kryptographie, die wir heute kennen und der wir vertrauen, 
                 von einer neuen Technologie vollständig durchbrochen werden könnte. Diese Welt könnte näher sein, als wir denken. 
                 Die Quantencomputer, die sich rapide weiterentwickeln, versprechen enorme Fortschritte in Wissenschaft und Technologie, 
                 stellen jedoch eine ernsthafte Bedrohung für die klassische Kryptographie dar. Um dieser Bedrohung zu begegnen, 
@@ -188,7 +188,7 @@ const IndexPage = () =>{
                             <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                             Kyber
                             </Typography>
-                                : Ein gitterbasierter Algorithmus für die Verschlüsselung und Schlüsselvereinbarung. Er bietet hohe Sicherheit und Effizienz.
+                                : Ein gitterbasierter Algorithmus für die Verschlüsselung und Schlüsselvereinbarung. Er bietet hohe Sicherheit und Effizienz und wurde als primärer Standard für Schlüsselvereinbarungsmechanismen im NIST-Standardisierungsprozess ausgewählt. Kyber nutzt die Schwierigkeit von Modul-Gitterproblemen, um sichere Kommunikation zu ermöglichen.
                             </>
                             }
                             secondary={
@@ -208,7 +208,7 @@ const IndexPage = () =>{
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                 Dilithium
                                 </Typography>
-                                : Ein Algorithmus für digitale Signaturen, der ebenfalls auf der Gitter-basierten Kryptographie beruht und hohe Leistung und Sicherheit bietet.
+                                : Ein Algorithmus für digitale Signaturen, der ebenfalls auf der Gitter-basierten Kryptographie beruht und hohe Leistung und Sicherheit bietet. Dilithium zeichnet sich durch schnelle Signaturerstellung und -verifikation sowie moderate Schlüssel- und Signaturgrößen aus. Es ist einer der Hauptkandidaten für die Standardisierung durch das NIST.
                             </>
                             }
                             secondary={
@@ -226,12 +226,12 @@ const IndexPage = () =>{
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                 Falcon
                                 </Typography>
-                                : Ein gitterbasierter Signaturalgorithmus, der für Anwendungen geeignet ist, die kompakte und effiziente Signaturen benötigen.
+                                : Ein gitterbasierter Signaturalgorithmus, der für Anwendungen geeignet ist, die kompakte und effiziente Signaturen benötigen. Falcon bietet kleinere Signatur- und Schlüsselgrößen im Vergleich zu anderen gitterbasierten Algorithmen und ist somit ideal für ressourcenbeschränkte Umgebungen.
                             </>
                             }
                             secondary={
-                                <Link href="https://pq-crystals.org/dilithium/index.shtml" target="_blank" rel="noopener">
-                                    PQ-crystals.org/dilithium
+                                <Link href="https://falcon-sign.info/" target="_blank" rel="noopener">
+                                    falcon-sign.info
                                 </Link>
                             }
                         />
@@ -244,12 +244,12 @@ const IndexPage = () =>{
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                 SPHINCS+
                                 </Typography>
-                                : Ein hash-basierter Algorithmus für digitale Signaturen, der zwar weniger effizient ist, aber extrem starke Sicherheitsgarantien bietet.
+                                : Ein hash-basierter Algorithmus für digitale Signaturen, der zwar weniger effizient ist, aber extrem starke Sicherheitsgarantien bietet. SPHINCS+ ist unabhängig von Annahmen über die Schwierigkeit bestimmter mathematischer Probleme und bietet dadurch langfristige Sicherheit gegen Quantenangriffe.
                             </>
                             }
                             secondary={
-                                <Link href="https://pq-crystals.org/dilithium/index.shtml" target="_blank" rel="noopener">
-                                    PQ-crystals.org/dilithium
+                                <Link href="https://sphincs.org/" target="_blank" rel="noopener">
+                                    sphincs.org
                                 </Link>
                             }
                         />
@@ -262,12 +262,97 @@ const IndexPage = () =>{
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                 Classic McEliece
                                 </Typography>
-                                : Ein code-basierter Verschlüsselungsalgorithmus, der als äußerst robust gegen Quantenangriffe gilt, jedoch sehr große Schlüssellängen erfordert.
+                                : Ein code-basierter Verschlüsselungsalgorithmus, der als äußerst robust gegen Quantenangriffe gilt, jedoch sehr große Schlüssellängen erfordert. Classic McEliece basiert auf der Schwierigkeit des Decodierens zufälliger linearer Codes und hat eine über 40-jährige Geschichte ohne bekannte erfolgreiche Angriffe.
                             </>
                             }
                             secondary={
-                                <Link href="https://pq-crystals.org/dilithium/index.shtml" target="_blank" rel="noopener">
-                                    PQ-crystals.org/dilithium
+                                <Link href="https://classic.mceliece.org/" target="_blank" rel="noopener">
+                                    classic.mceliece.org
+                                </Link>
+                            }
+                        />
+                        </ListItem>
+                        <ListItem sx={{ display: 'list-item' }}>
+                        <ListItemText
+                            primary={
+                            <>
+                                <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                BIKE (Bit Flipping Key Encapsulation)
+                                </Typography>
+                                : Ein code-basierter Schlüsselvereinbarungsmechanismus, der auf zyklischen Codes basiert. BIKE bietet hohe Sicherheit und Effizienz und ist ein Kandidat im NIST-Standardisierungsprozess für Post-Quantum-Kryptographie.
+                            </>
+                            }
+                            secondary={
+                                <Link href="https://bikesuite.org/" target="_blank" rel="noopener">
+                                    bikesuite.org
+                                </Link>
+                            }
+                        />
+                        </ListItem>
+                        <ListItem sx={{ display: 'list-item' }}>
+                        <ListItemText
+                            primary={
+                            <>
+                                <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                HQC (Hamming Quasi-Cyclic)
+                                </Typography>
+                                : Ein code-basierter Verschlüsselungsalgorithmus, der die Schwierigkeit des Decodierens von Quasi-zyklischen Codes nutzt. HQC bietet einen guten Kompromiss zwischen Sicherheit und Leistung und ist ebenfalls Teil des NIST-Standardisierungsprozesses.
+                            </>
+                            }
+                            secondary={
+                                <Link href="https://pqc-hqc.org/" target="_blank" rel="noopener">
+                                    pqc-hqc.org
+                                </Link>
+                            }
+                        />
+                        </ListItem>
+                        <ListItem sx={{ display: 'list-item' }}>
+                        <ListItemText
+                            primary={
+                            <>
+                                <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                Rainbow
+                                </Typography>
+                                : Ein multivariater Signaturalgorithmus, der auf der Schwierigkeit basiert, Systeme nichtlinearer Gleichungen zu lösen. Rainbow bietet schnelle Signaturerstellung und -verifikation, wurde jedoch im NIST-Prozess aufgrund von Sicherheitsbedenken nicht weiterverfolgt.
+                            </>
+                            }
+                            secondary={
+                                <Link href="https://www.pqcrainbow.org/" target="_blank" rel="noopener">
+                                    pqcrainbow.org
+                                </Link>
+                            }
+                        />
+                        </ListItem>
+                        <ListItem sx={{ display: 'list-item' }}>
+                        <ListItemText
+                            primary={
+                            <>
+                                <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                FrodoKEM
+                                </Typography>
+                                : Ein gitterbasierter Schlüsselvereinbarungsmechanismus, der auf dem Learning with Errors (LWE)-Problem basiert. FrodoKEM bietet hohe Sicherheit ohne die Verwendung von strukturierter Gitterarithmetik, was es widerstandsfähiger gegen bestimmte Angriffe macht.
+                            </>
+                            }
+                            secondary={
+                                <Link href="https://frodokem.org/" target="_blank" rel="noopener">
+                                    frodokem.org
+                                </Link>
+                            }
+                        />
+                        </ListItem>
+                        <ListItem sx={{ display: 'list-item' }}>
+                        <ListItemText
+                            primary={
+                            <>
+                                <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                NTRU
+                                </Typography>
+                                : Ein weiterer gitterbasierter Verschlüsselungsalgorithmus, der seit den 1990er Jahren bekannt ist. NTRU bietet schnelle Verschlüsselungs- und Entschlüsselungszeiten sowie moderate Schlüsselgrößen und wurde im NIST-Prozess als alternativer Kandidat betrachtet.
+                            </>
+                            }
+                            secondary={
+                                <Link href="https://www.ntru.org/" target="_blank" rel="noopener">
+                                    ntru.org
                                 </Link>
                             }
                         />
@@ -289,6 +374,7 @@ const IndexPage = () =>{
               </p>
               
             </Typography>
+            <Box sx={{ marginBottom: 8 }} />
 
 
 
@@ -304,8 +390,8 @@ const IndexPage = () =>{
               Kyber ist ein kryptografisches Verfahren, das als Teil der "Post-Quantum-Kryptographie" entwickelt wurde, um gegen Angriffe resistent zu sein, 
               die mit zukünftigen Quantencomputern möglich wären. Es wurde im Rahmen des von NIST (National Institute of Standards and Technology) 
               gestarteten Wettbewerbs zur Standardisierung von Post-Quantum-Kryptographie entworfen und gilt als einer der vielversprechendsten Kandidaten. 
-              Das Kyber-Protokoll basiert auf den mathematischen Problemen der Modul-Gitter, die nach aktuellem Wissen selbst von Quantencomputern nicht effizient 
-              gelöst werden können.
+              Kyber basiert auf der Schwierigkeit des "Module Learning with Errors"-Problems (MLWE), 
+              das auf Gitterstrukturen angewendet wird und als schwer zu lösen gilt, selbst für Quantencomputer.
               </p>
               
             </Typography>
@@ -326,9 +412,10 @@ const IndexPage = () =>{
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                 1. Schlüsselerzeugung
                                 </Typography>
-                                : Der Absender und der Empfänger eines verschlüsselten Nachrichtenverkehrs generieren zunächst gemeinsam einen öffentlichen und 
-                                einen privaten Schlüssel. Dies erfolgt durch die mathematische Manipulation von Gitterstrukturen. Der öffentliche Schlüssel wird 
-                                anschließend weitergegeben, während der private Schlüssel geheim gehalten wird.
+                                : Der Absender und Empfänger erzeugen gemeinsam ein Schlüsselpaar bestehend aus einem öffentlichen und einem privaten Schlüssel. 
+                                Dies geschieht durch die Verwendung von Modul-Gittern. Der öffentliche Schlüssel ( pk = (A, t) ) besteht aus einer zufällig 
+                                generierten Matrix ( A ) und einem Vektor ( t = A * s + e ), wobei ( s ) der geheime Schlüssel und ( e ) ein kleiner 
+                                Fehlervektor ist.
                             </>
                             }
                             
@@ -341,9 +428,10 @@ const IndexPage = () =>{
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                 2. Verschlüsselung
                                 </Typography>
-                                : Der Absender verschlüsselt eine Nachricht, indem er den öffentlichen Schlüssel des Empfängers verwendet. 
-                                Dabei wird ein Chiffretext erzeugt, der aus der ursprünglichen Nachricht und einer bestimmten Menge Rauschen besteht. 
-                                Dieses Rauschen verhindert, dass ein Angreifer, selbst wenn er den öffentlichen Schlüssel kennt, die Nachricht rekonstruieren kann.
+                                : Der Absender verwendet den öffentlichen Schlüssel ( pk ), um eine Nachricht zu verschlüsseln. 
+                                Die Verschlüsselung erfolgt durch Berechnung des Chiffretexts ( c = (u, v) ), wobei ( u = A^T * r + e_1 ) 
+                                und ( v = t^T * r + e_2 + m ) sind. Hierbei sind ( r ) und ( e_1, e_2 ) Zufallswerte, die die Sicherheit erhöhen 
+                                und ( m ) ist die zu übertragende Nachricht.
                             </>
                             }
                             
@@ -356,8 +444,8 @@ const IndexPage = () =>{
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                 3. Entschlüsselung
                                 </Typography>
-                                : Der Empfänger kann mit seinem privaten Schlüssel den Chiffretext entschlüsseln, indem er das mathematische Rauschen entfernt und so die ursprüngliche Nachricht wiederherstellt. 
-                                Dank der Struktur der verwendeten Modul-Gitter ist dies für den legitimen Empfänger möglich, während es für Angreifer extrem schwierig bleibt.
+                                : Der Empfänger verwendet den geheimen Schlüssel ( s ), um den Chiffretext zu entschlüsseln. 
+                                Dies geschieht durch Berechnung der Nachricht ( m ) als ( m = v - u^T * s ).
                             </>
                             }
                             
@@ -374,7 +462,7 @@ const IndexPage = () =>{
             <Typography sx={{ display: 'flex', marginBottom: 3, padding: 2 }}>
                 <p>
                 Kyber wird in erster Linie für asymmetrische Verschlüsselung verwendet, d.h. für den sicheren Austausch von Schlüsseln über unsichere 
-                Kommunikationskanäle. Dies ist in einer Vielzahl von Anwendungen von zentraler Bedeutung, darunter
+                Kommunikationskanäle. Dies ist in einer Vielzahl von Anwendungen von zentraler Bedeutung, darunter:
                 
                 <List>
                     <ListItem sx={{ display: 'list-item' }}>
@@ -436,7 +524,7 @@ const IndexPage = () =>{
 
             <Typography sx={{ display: 'flex', marginBottom: 0, padding: 0 }}>
               <p>
-              Hier findest du einige Beispielanwendungen in den Programmiersprachen Rust, Python und Go. 
+              Hier findest du einige Beispielanwendungen in den Programmiersprachen Rust, Python und C++. 
               Diese Beispiele sollen dir helfen, die Implementierung und Nutzung der vorgestellten Algorithmen besser zu verstehen und in deinen eigenen 
               Projekten anzuwenden.
               </p>
@@ -446,7 +534,7 @@ const IndexPage = () =>{
           {/* Tab-Komponente für die Auswahl von Go, Rust und Python */}
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <Tabs value={kyberTabIndex} onChange={handleKyberTabChange} centered>
-                  <Tab label="Go" />
+                  <Tab label="C++" />
                   <Tab label="Rust" />
                   <Tab label="Python" />
               </Tabs>
@@ -598,6 +686,7 @@ const IndexPage = () =>{
                   </CardContent>
               </Card>
             </TabPanel>
+            <Box sx={{ marginBottom: 8 }} />
           
           
             <Typography variant="h3" gutterBottom>
@@ -612,6 +701,124 @@ const IndexPage = () =>{
                 Ein weiteres wichtiges Designziel war die Kompaktheit der öffentlichen Schlüssel und Signaturen. In vielen Anwendungen, etwa bei Zertifikatsketten, müssen sowohl der öffentliche Schlüssel als auch die Signatur übertragen werden. Dilithium minimiert die Summe dieser beiden Parameter, ohne die Sicherheit zu gefährden. Auf diese Weise ist der Algorithmus besonders für ressourcenbeschränkte Umgebungen geeignet, in denen Speicherplatz und Bandbreite begrenzt sind.
                 Das Signaturverfahren basiert auf einem sogenannten Fiat-Shamir-Ansatz mit Unterbrechungen, das bereits seit vielen Jahren in der Kryptographie verwendet wird. Es nutzt eine Kombination aus gitterbasierten Algorithmen, um sichere Signaturen zu erstellen und zu verifizieren .
                 </p>
+            </Typography>
+            <Typography variant="h6" gutterBottom>
+            Funktionsweise von Dilithium
+            </Typography>
+            <Typography sx={{ display: 'flex', marginBottom: 3, padding: 2 }}>
+                <p>
+                Dilithium basiert auf dem mathematischen Konzept des „Fiat-Shamir mit Abbrüchen“-Ansatzes und nutzt das 
+                Modul-Learning-with-Errors-Problem (Module-LWE), ein schwer zu lösendes Gitterproblem. Der Signaturalgorithmus arbeitet in drei Schritten:
+                
+                <List>
+                    <ListItem sx={{ display: 'list-item' }}>
+                        <ListItemText
+                            primary={
+                            <>
+                                <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                1. Schlüsselerzeugung
+                                </Typography>
+                                : Zuerst wird eine Gitterstruktur in Form einer Matrix A erzeugt. 
+                                Dann werden die geheimen Schlüssel s_1 und s_2 zufällig generiert, während der öffentliche Schlüssel durch t = A * s_1 + s_2 
+                                bestimmt wird. Der öffentliche Schlüssel besteht aus der Matrix A und einem Teil von t, während die geheimen Schlüssel s_1 und s_2 
+                                geheim gehalten werden.
+                            </>
+                            }
+                            
+                        />
+                    </ListItem>
+                    <ListItem sx={{ display: 'list-item' }}>
+                        <ListItemText
+                            primary={
+                            <>
+                                <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                2. Signaturerzeugung
+                                </Typography>
+                                : Um eine Nachricht M zu signieren, generiert der Absender eine Zufallsmaske y und berechnet w = A * y. 
+                                Die Signatur z wird als z = y + c * s_1 erzeugt, wobei c eine Hash-Wert-Herausforderung ist, die auf der Nachricht M und 
+                                einem Teil von w basiert.
+                            </>
+                            }
+                            
+                        />
+                    </ListItem>
+                    <ListItem sx={{ display: 'list-item' }}>
+                        <ListItemText
+                            primary={
+                            <>
+                                <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                3. Verifikation
+                                </Typography>
+                                : Der Verifizierer überprüft die Signatur, indem er überprüft, ob die hohen Bits des berechneten Wertes A * z - c * t 
+                                übereinstimmen und ob die Hash-Herausforderung korrekt rekonstruiert werden kann. Dies gewährleistet, dass die Signatur 
+                                authentisch und gültig ist.
+                            </>
+                            }
+                            
+                        />
+                    </ListItem>
+                </List>
+                </p>
+              
+            </Typography>
+
+            <Typography variant="h6" gutterBottom>
+            Einsatzgebiete von Dilithium
+            </Typography>
+            <Typography sx={{ display: 'flex', marginBottom: 3, padding: 2 }}>
+                <p>
+                Dilithium ist für digitale Signaturen optimiert und findet in vielen sicherheitskritischen Anwendungen Einsatz:
+                
+                <List>
+                    <ListItem sx={{ display: 'list-item' }}>
+                        <ListItemText
+                            primary={
+                            <>
+                                <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                1. Software-Updates und Code-Signaturen
+                                </Typography>
+                                : Digitale Signaturen, wie die von Dilithium erzeugten, werden verwendet, um die Integrität und Authentizität von Software-Updates sicherzustellen. 
+                                Dies ist von entscheidender Bedeutung, um sicherzustellen, dass Software nicht von einem Angreifer manipuliert wurde.
+                            </>
+                            }
+                            
+                        />
+                    </ListItem>
+                    <ListItem sx={{ display: 'list-item' }}>
+                        <ListItemText
+                            primary={
+                            <>
+                                <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                2. Authentifizierungsprotokolle
+                                </Typography>
+                                : Dilithium wird in Authentifizierungsprotokollen eingesetzt, bei denen es wichtig ist, die Identität eines 
+                                Benutzers oder eines Geräts zu überprüfen, z. B. in IoT-Geräten oder in sicheren Kommunikationssystemen.
+                            </>
+                            }
+                            
+                        />
+                    </ListItem>
+                    <ListItem sx={{ display: 'list-item' }}>
+                        <ListItemText
+                            primary={
+                            <>
+                                <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
+                                3. Langzeit-Sicherheit
+                                </Typography>
+                                :  Da Quantencomputer in der Zukunft bestehende kryptografische Verfahren wie RSA und ECC brechen könnten, 
+                                bietet Dilithium eine Lösung für Anwendungen, die langfristige Sicherheit erfordern, wie z. B. in staatlichen oder 
+                                militärischen Systemen.
+                            </>
+                            }
+                            
+                        />
+                    </ListItem>
+                </List>
+                Dilithium bietet eine effiziente und zukunftssichere Lösung für digitale Signaturen in einer Zeit, in der Quantencomputer 
+                eine zunehmende Bedrohung darstellen. Seine mathematischen Grundlagen machen es zu einem der vielversprechendsten Algorithmen 
+                für den Einsatz in sicherheitskritischen Bereichen, die sowohl hohe Sicherheit als auch Performance erfordern.
+                </p>
+              
             </Typography>
           
           
