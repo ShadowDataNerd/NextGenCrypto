@@ -1,19 +1,19 @@
 # Base image mit Python 3.11 (oder die Version, die dein Projekt erfordert)
 FROM python:3.11
 
-COPY  . /app
+
 # Setze das Arbeitsverzeichnis innerhalb des Containers
 WORKDIR /app
 
 # Kopiere die Datei requirements.txt in das Arbeitsverzeichnis
-COPY requirements.txt .
+COPY ./NextGenCrypto_API/requirements.txt .
 
 # Installiere die Abhängigkeiten
 RUN pip install --no-cache-dir -r requirements.txt
-RUN pip install .
+#RUN pip install .
 
 # Kopiere den gesamten Inhalt des Backend-Projekts in das Container-Arbeitsverzeichnis
-COPY . .
+COPY ./NextGenCrypto_API .
 
 EXPOSE 5555
 

@@ -11,3 +11,7 @@ k8s/
 .node-version
 CHANGELOG.md
 README.md
+**/*.db
+**/Lib
+**/Scripts
+**/__pycache__
