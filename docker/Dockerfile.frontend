@@ -1,5 +1,5 @@
 FROM node:20-alpine as builder-web
-
+ARG VITE_BACKEND_BASEURL=127.0.0.1:5555
 WORKDIR /app/build
 COPY ./NextGenCrypto_Frontend/package.json ./package.json
 RUN yarn --frozen-lockfile

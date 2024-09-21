@@ -4,11 +4,12 @@ services:
     build:
       context: ..
       dockerfile: ./docker/Dockerfile.frontend
+      args:
+        - VITE_BACKEND_BASEURL=backend:5555
     restart: always
     ports:
       - 80:80
-    environment:
-      - VITE_BACKEND_BASEURL=backend:5555
+    
 
   backend:
     image: nextgencrypto_backend
