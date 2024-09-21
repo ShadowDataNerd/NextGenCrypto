@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 
 // API Server URL (lokale Verbindung)
-const API_BASE_URL = "http://127.0.0.1:5555";
+const API_BASE_URL = import.meta.env.VITE_BACKEND_BASEURL ?? "http://127.0.0.1:5555";
 
 const ToolPage: React.FC = () => {
     const [url, setUrl] = useState<string>(""); // User-input für die URL
