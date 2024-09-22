@@ -1,6 +1,5 @@
 import { Box, Button, Card, CardContent, Paper, Tab, Tabs, Typography, Snackbar, TextField, ListItem, List, ListItemText, Link } from "@mui/material"
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 
 function TabPanel(props: { children?: React.ReactNode, value: number, index: number }) {
@@ -38,11 +37,6 @@ const IndexPage = () =>{
 
 
 
-    const navigate = useNavigate();
-    const handleOnClick = () =>{
-      navigate("/about");
-
-    }
 
     const [kyberTabIndex, setKyberTabIndex] = useState(0); // Kyber tab state
     const [dilithiumTabIndex, setDilithiumTabIndex] = useState(0); // Dilithium tab state
@@ -50,7 +44,7 @@ const IndexPage = () =>{
     const [snackbarMessage, setSnackbarMessage] = useState<string>(''); // Snackbar-Nachricht
 
 
-    // Installation-Befehle für verschiedene Abschnitte
+    // Installation commands for various sections
     const sectionCommands = {
         "kyber": [
             { label: 'Installiere kyber', command: 'git clone https://github.com/pq-crystals/kyber.git && cd kyber/ref && make && cd ../avx2 && make' },
@@ -82,20 +76,20 @@ const IndexPage = () =>{
             setDilithiumTabIndex(newValue); // Dilithium tab change
     };
 
-    // Funktion, um den Befehl in die Zwischenablage zu kopieren
+    // Function to copy the command to the clipboard
     const handleCopyToClipboard = (command: string) => {
         navigator.clipboard.writeText(command)
             .then(() => {
-                setSnackbarMessage(`Befehl "${command}" wurde in die Zwischenablage kopiert!`);
-                setSnackbarOpen(true); // Zeigt Snackbar an, wenn der Befehl kopiert wurde
+                setSnackbarMessage(`Command "${command}" was copied to the clipboard!`);
+                setSnackbarOpen(true); 
             })
             .catch(err => {
-                console.error('Fehler beim Kopieren: ', err);
+                console.error('Error when copying: ', err);
             });
     };
     
     
-    // Hilfsfunktion, um die Felder unter den Abschnitten zu generieren
+    // Help function to generate the fields under the sections
     const renderCommandFields = (commands: { label: string, command: string }[]) => (
         commands.map((cmd, index) => (
             <Paper key={index} sx={{ marginTop: 3, padding: 2 }}>
@@ -106,22 +100,22 @@ const IndexPage = () =>{
                       label=""
                       value={cmd.command}
                       InputProps={{
-                        readOnly: true, // Setzt das Textfeld auf nur lesbar
+                        readOnly: true, 
                       }}
                       variant="outlined"
                       sx={{ marginRight: 2 }}
                     />
                     <Button
-                      variant="outlined" // Rahmen um den Button
+                      variant="outlined" 
                       color="primary"
                       onClick={() => handleCopyToClipboard(cmd.command)}
                       sx={{
-                        height: '100%', // Gleiche Höhe wie das Textfeld
+                        height: '100%', 
                         color: 'white',
-                        borderColor: 'white', // Transparenter Rahmen
-                        backgroundColor: 'transparent', // Transparenter Hintergrund
+                        borderColor: 'white', 
+                        backgroundColor: 'transparent', 
                         '&:hover': {
-                          backgroundColor: 'rgba(255, 255, 255, 0.1)', // Leichtes Hover-Effekt
+                          backgroundColor: 'rgba(255, 255, 255, 0.1)', 
                         }
                       }}
                     >
@@ -136,49 +130,45 @@ const IndexPage = () =>{
     return (
         <Box sx={{ padding: 3 }}>
             <Box sx={{ marginBottom: 10 }} />
-            <Typography variant="h1" gutterBottom sx={{ display: 'flex', marginBottom: 3, marginTop: 2, padding: 1 }}>Willkommen in der Welt der PQC</Typography>
+            <Typography variant="h1" gutterBottom sx={{ display: 'flex', marginBottom: 3, marginTop: 2, padding: 1 }}>Welcome to the world of PQC</Typography>
             <Box sx={{ padding: 5 }}></Box>
-            <Typography variant="h3" gutterBottom sx={{ display: 'flex', marginBottom: 3, marginTop: 2, padding: 1 }}>Bist du den schon bereit für PQC?</Typography>
+            <Typography variant="h3" gutterBottom sx={{ display: 'flex', marginBottom: 3, marginTop: 2, padding: 1 }}>Are you ready for PQC?</Typography>
             
 
             <Typography sx={{ display: 'flex', marginBottom: 3, padding: 2 }}>
                 <p>
-               
-                Stellen Sie sich eine Welt vor, in der die Kryptographie, die wir heute kennen und der wir vertrauen, 
-                von einer neuen Technologie vollständig durchbrochen werden könnte. Diese Welt könnte näher sein, als wir denken. 
-                Die Quantencomputer, die sich rapide weiterentwickeln, versprechen enorme Fortschritte in Wissenschaft und Technologie, 
-                stellen jedoch eine ernsthafte Bedrohung für die klassische Kryptographie dar. Um dieser Bedrohung zu begegnen, 
-                entwickelt die Forschung ein neues Feld: die Post-Quantum Kryptographie (PQC). Aber was genau ist PQC, und warum ist sie so wichtig? 
-                In diesem Artikel tauchen wir tief in die Welt der Post-Quantum Kryptographie ein und erklären, 
-                warum sie in einer zunehmend digitalisierten Gesellschaft unerlässlich ist.
+                Imagine a world where the cryptography we know and trust today could be completely broken by a new technology. 
+                This world may be closer than we think. Quantum computers, which are rapidly advancing, promise enormous progress in science and 
+                technology but pose a serious threat to classical cryptography. To address this threat, researchers are developing a new field: 
+                Post-Quantum Cryptography (PQC). But what exactly is PQC, and why is it so important? In this article, we will dive deep into the world of 
+                Post-Quantum Cryptography and explain why it is essential in an increasingly digitalized society.
                 </p>
             </Typography>
             <Typography sx={{ display: 'flex', marginBottom: 3, padding: 2 }}>
                 <p>
-                <Typography variant="h3" gutterBottom sx={{ display: 'flex', marginBottom: 3, marginTop: 2, padding: 1 }}>Aber was hilft?</Typography>
+                <Typography variant="h3" gutterBottom sx={{ display: 'flex', marginBottom: 3, marginTop: 2, padding: 1 }}>But what can help?</Typography>
                
-                Die Frage nach der Sicherheit kryptographischer Algorithmen in einer Welt mit Quantencomputern ist von entscheidender Bedeutung. 
-                Um diese Frage zu beantworten, hat das NIST den Post-Quantum-Kryptographie-Wettbewerb ins Leben gerufen. Ziel ist es, 
-                Algorithmen zu identifizieren, die gegen Angriffe von Quantencomputern sicher sind. Der Wettbewerb begann 2016 und durchlief mehrere Runden, 
-                in denen die eingereichten Algorithmen hinsichtlich Sicherheit und Effizienz bewertet wurden. Im Juli 2022 wurden die ersten quantensicheren Algorithmen ausgewählt, 
-                darunter Kyber für die Verschlüsselung und Dilithium für digitale Signaturen. Diese Algorithmen sollen zukünftige Standards in der IT-Sicherheit bilden.
-                
-                
-                Zusätzlich gibt das Bundesamt für Sicherheit in der Informationstechnik (BSI) ebenfalls Empfehlungen zu Post-Quantum-Algorithmen. 
-                Besonders hervorgehoben werden gitterbasierte, code-basierte und hashbasierte Verfahren, die als widerstandsfähig gegenüber Quantenangriffen gelten. 
-                Ein Beispiel hierfür ist der code-basierte Algorithmus Classic McEliece, der aufgrund seiner hohen Sicherheit, trotz großer Schlüssellängen, 
-                vom BSI empfohlen wird. Auch hashbasierte Signaturverfahren wie SPHINCS+ werden vom BSI anerkannt, da sie besonders starke Sicherheitsgarantien bieten.  
+                The question of the security of cryptographic algorithms in a world with quantum computers is of critical importance. 
+                To address this issue, NIST launched the Post-Quantum Cryptography competition. The goal is to identify algorithms that are secure against 
+                attacks from quantum computers. The competition began in 2016 and went through several rounds, in which the submitted algorithms were evaluated 
+                for security and efficiency. In July 2022, the first quantum-safe algorithms were selected, including Kyber for encryption and Dilithium for digital 
+                signatures. These algorithms are expected to form the future standards in IT security.
+
+                Additionally, the Federal Office for Information Security (BSI) also provides recommendations on post-quantum algorithms. 
+                Particularly highlighted are lattice-based, code-based, and hash-based schemes, which are considered resilient to quantum attacks. 
+                An example of this is the code-based algorithm Classic McEliece, which, despite its large key sizes, is recommended by the BSI due to its high level 
+                of security. Hash-based signature schemes like SPHINCS+ are also recognized by the BSI, as they offer particularly strong security guarantees.  
                 </p>
                 
             </Typography>
             <Box>
-                Quelle: <Link href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank" rel="noopener">NIST.gov PQC Wetbewerb </Link>
+                Quelle: <Link href="https://csrc.nist.gov/projects/post-quantum-cryptography" target="_blank" rel="noopener">NIST.gov PQC Competition </Link>
             </Box>
             <Box sx={{ marginBottom: 8 }} />
           
             <Box sx={{ padding: 3 }}>
                 <Typography variant="h4" gutterBottom>
-                    Post-Quantum Kryptographie Algorithmen
+                    Post-quantum cryptography algorithms
                 </Typography>
                     <List sx={{ listStyleType: 'decimal', pl: 2 }}>
                         <ListItem sx={{ display: 'list-item' }}>
@@ -188,7 +178,7 @@ const IndexPage = () =>{
                             <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                             Kyber
                             </Typography>
-                                : Ein gitterbasierter Algorithmus für die Verschlüsselung und Schlüsselvereinbarung. Er bietet hohe Sicherheit und Effizienz und wurde als primärer Standard für Schlüsselvereinbarungsmechanismen im NIST-Standardisierungsprozess ausgewählt. Kyber nutzt die Schwierigkeit von Modul-Gitterproblemen, um sichere Kommunikation zu ermöglichen.
+                                : A lattice-based algorithm for encryption and key exchange. It offers high security and efficiency and was selected as the primary standard for key exchange mechanisms in the NIST standardization process. Kyber leverages the difficulty of module lattice problems to enable secure communication.
                             </>
                             }
                             secondary={
@@ -208,7 +198,7 @@ const IndexPage = () =>{
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                 Dilithium
                                 </Typography>
-                                : Ein Algorithmus für digitale Signaturen, der ebenfalls auf der Gitter-basierten Kryptographie beruht und hohe Leistung und Sicherheit bietet. Dilithium zeichnet sich durch schnelle Signaturerstellung und -verifikation sowie moderate Schlüssel- und Signaturgrößen aus. Es ist einer der Hauptkandidaten für die Standardisierung durch das NIST.
+                                : An algorithm for digital signatures that is also based on lattice-based cryptography, offering high performance and security. Dilithium is characterized by fast signature generation and verification, as well as moderate key and signature sizes. It is one of the leading candidates for standardization by NIST.
                             </>
                             }
                             secondary={
@@ -226,7 +216,7 @@ const IndexPage = () =>{
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                 Falcon
                                 </Typography>
-                                : Ein gitterbasierter Signaturalgorithmus, der für Anwendungen geeignet ist, die kompakte und effiziente Signaturen benötigen. Falcon bietet kleinere Signatur- und Schlüsselgrößen im Vergleich zu anderen gitterbasierten Algorithmen und ist somit ideal für ressourcenbeschränkte Umgebungen.
+                                : A lattice-based signature algorithm suitable for applications that require compact and efficient signatures. Falcon offers smaller signature and key sizes compared to other lattice-based algorithms, making it ideal for resource-constrained environments.
                             </>
                             }
                             secondary={
@@ -244,7 +234,7 @@ const IndexPage = () =>{
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                 SPHINCS+
                                 </Typography>
-                                : Ein hash-basierter Algorithmus für digitale Signaturen, der zwar weniger effizient ist, aber extrem starke Sicherheitsgarantien bietet. SPHINCS+ ist unabhängig von Annahmen über die Schwierigkeit bestimmter mathematischer Probleme und bietet dadurch langfristige Sicherheit gegen Quantenangriffe.
+                                : A hash-based digital signature algorithm that is less efficient but offers extremely strong security guarantees. SPHINCS+ is independent of assumptions about the difficulty of specific mathematical problems, providing long-term security against quantum attacks.
                             </>
                             }
                             secondary={
@@ -262,7 +252,7 @@ const IndexPage = () =>{
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                 Classic McEliece
                                 </Typography>
-                                : Ein code-basierter Verschlüsselungsalgorithmus, der als äußerst robust gegen Quantenangriffe gilt, jedoch sehr große Schlüssellängen erfordert. Classic McEliece basiert auf der Schwierigkeit des Decodierens zufälliger linearer Codes und hat eine über 40-jährige Geschichte ohne bekannte erfolgreiche Angriffe.
+                                : A code-based encryption algorithm that is considered highly robust against quantum attacks but requires very large key sizes. Classic McEliece is based on the difficulty of decoding random linear codes and has a history of over 40 years without any known successful attacks.
                             </>
                             }
                             secondary={
@@ -279,7 +269,7 @@ const IndexPage = () =>{
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                 BIKE (Bit Flipping Key Encapsulation)
                                 </Typography>
-                                : Ein code-basierter Schlüsselvereinbarungsmechanismus, der auf zyklischen Codes basiert. BIKE bietet hohe Sicherheit und Effizienz und ist ein Kandidat im NIST-Standardisierungsprozess für Post-Quantum-Kryptographie.
+                                : A code-based key exchange mechanism that relies on cyclic codes. BIKE offers high security and efficiency and is a candidate in the NIST standardization process for post-quantum cryptography.
                             </>
                             }
                             secondary={
@@ -296,7 +286,7 @@ const IndexPage = () =>{
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                 HQC (Hamming Quasi-Cyclic)
                                 </Typography>
-                                : Ein code-basierter Verschlüsselungsalgorithmus, der die Schwierigkeit des Decodierens von Quasi-zyklischen Codes nutzt. HQC bietet einen guten Kompromiss zwischen Sicherheit und Leistung und ist ebenfalls Teil des NIST-Standardisierungsprozesses.
+                                : A code-based encryption algorithm that leverages the difficulty of decoding quasi-cyclic codes. HQC offers a good balance between security and performance and is also part of the NIST standardization process.
                             </>
                             }
                             secondary={
@@ -313,7 +303,7 @@ const IndexPage = () =>{
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                 Rainbow
                                 </Typography>
-                                : Ein multivariater Signaturalgorithmus, der auf der Schwierigkeit basiert, Systeme nichtlinearer Gleichungen zu lösen. Rainbow bietet schnelle Signaturerstellung und -verifikation, wurde jedoch im NIST-Prozess aufgrund von Sicherheitsbedenken nicht weiterverfolgt.
+                                : A multivariate signature algorithm based on the difficulty of solving systems of nonlinear equations. Rainbow offers fast signature generation and verification but was not pursued further in the NIST process due to security concerns.
                             </>
                             }
                             secondary={
@@ -330,7 +320,7 @@ const IndexPage = () =>{
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                 FrodoKEM
                                 </Typography>
-                                : Ein gitterbasierter Schlüsselvereinbarungsmechanismus, der auf dem Learning with Errors (LWE)-Problem basiert. FrodoKEM bietet hohe Sicherheit ohne die Verwendung von strukturierter Gitterarithmetik, was es widerstandsfähiger gegen bestimmte Angriffe macht.
+                                : A lattice-based key exchange mechanism based on the Learning with Errors (LWE) problem. FrodoKEM offers high security without the use of structured lattice arithmetic, making it more resistant to certain types of attacks.
                             </>
                             }
                             secondary={
@@ -347,7 +337,7 @@ const IndexPage = () =>{
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
                                 NTRU
                                 </Typography>
-                                : Ein weiterer gitterbasierter Verschlüsselungsalgorithmus, der seit den 1990er Jahren bekannt ist. NTRU bietet schnelle Verschlüsselungs- und Entschlüsselungszeiten sowie moderate Schlüsselgrößen und wurde im NIST-Prozess als alternativer Kandidat betrachtet.
+                                : Another lattice-based encryption algorithm that has been known since the 1990s. NTRU offers fast encryption and decryption times, along with moderate key sizes, and has been considered as an alternative candidate in the NIST process.
                             </>
                             }
                             secondary={
@@ -369,8 +359,7 @@ const IndexPage = () =>{
           
             <Typography sx={{ display: 'flex', marginBottom: 0, padding: 0 }}>
               <p>
-              Um euch das besser zu veranschaulichen, habe ich die Algorithmen Kyber und Dilithium recherchiert und stelle sie euch hier vor. 
-              Weitere Algorithmen könnt ihr in der Liste des NIST-Wettbewerbs finden.
+              To illustrate this better for you, I have researched the Kyber and Dilithium algorithms and present them to you here. You can find additional algorithms in the list of the NIST competition.
               </p>
               
             </Typography>
@@ -387,22 +376,16 @@ const IndexPage = () =>{
 
             <Typography sx={{ display: 'flex', marginBottom: 3, padding: 0 }}>
               <p>
-              Kyber ist ein kryptografisches Verfahren, das als Teil der "Post-Quantum-Kryptographie" entwickelt wurde, um gegen Angriffe resistent zu sein, 
-              die mit zukünftigen Quantencomputern möglich wären. Es wurde im Rahmen des von NIST (National Institute of Standards and Technology) 
-              gestarteten Wettbewerbs zur Standardisierung von Post-Quantum-Kryptographie entworfen und gilt als einer der vielversprechendsten Kandidaten. 
-              Kyber basiert auf der Schwierigkeit des "Module Learning with Errors"-Problems (MLWE), 
-              das auf Gitterstrukturen angewendet wird und als schwer zu lösen gilt, selbst für Quantencomputer.
+              Kyber is a cryptographic scheme developed as part of "Post-Quantum Cryptography" to resist attacks that could be possible with future quantum computers. It was designed as part of the competition launched by NIST (National Institute of Standards and Technology) to standardize post-quantum cryptography and is considered one of the most promising candidates. Kyber is based on the difficulty of the "Module Learning with Errors" (MLWE) problem, which is applied to lattice structures and is considered hard to solve, even for quantum computers.
               </p>
               
             </Typography>
             <Typography variant="h6" gutterBottom>
-            Funktionsweise von Kyber
+            How Kyber works
             </Typography>
             <Typography sx={{ display: 'flex', marginBottom: 3, padding: 2 }}>
                 <p>
-                Kyber basiert auf einem speziellen mathematischen Problem, das als "Learning With Errors" (LWE) bekannt ist und in der verschärften 
-                Form der Modul-Gitter-Anwendung verwendet wird. Das Grundprinzip von LWE besteht darin, dass es extrem schwierig ist, ein geheimes Signal 
-                (wie z.B. einen Schlüssel) zu entschlüsseln, wenn es durch zufälliges "Rauschen" verfälscht wurde.
+                Kyber is based on a specific mathematical problem known as "Learning With Errors" (LWE), which is used in its enhanced form in the module lattice application. The core principle of LWE is that it is extremely difficult to decipher a secret signal (such as a key) when it has been distorted by random "noise."
                 
                 <List>
                     <ListItem sx={{ display: 'list-item' }}>
@@ -410,12 +393,9 @@ const IndexPage = () =>{
                             primary={
                             <>
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                1. Schlüsselerzeugung
+                                1. Key generation
                                 </Typography>
-                                : Der Absender und Empfänger erzeugen gemeinsam ein Schlüsselpaar bestehend aus einem öffentlichen und einem privaten Schlüssel. 
-                                Dies geschieht durch die Verwendung von Modul-Gittern. Der öffentliche Schlüssel ( pk = (A, t) ) besteht aus einer zufällig 
-                                generierten Matrix ( A ) und einem Vektor ( t = A * s + e ), wobei ( s ) der geheime Schlüssel und ( e ) ein kleiner 
-                                Fehlervektor ist.
+                                : The sender and receiver jointly generate a key pair consisting of a public and a private key. This is done using module lattices. The public key (pk = (A, t)) consists of a randomly generated matrix (A) and a vector (t = A * s + e), where (s) is the secret key and (e) is a small error vector.
                             </>
                             }
                             
@@ -426,12 +406,9 @@ const IndexPage = () =>{
                             primary={
                             <>
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                2. Verschlüsselung
+                                2. Encryption
                                 </Typography>
-                                : Der Absender verwendet den öffentlichen Schlüssel ( pk ), um eine Nachricht zu verschlüsseln. 
-                                Die Verschlüsselung erfolgt durch Berechnung des Chiffretexts ( c = (u, v) ), wobei ( u = A^T * r + e_1 ) 
-                                und ( v = t^T * r + e_2 + m ) sind. Hierbei sind ( r ) und ( e_1, e_2 ) Zufallswerte, die die Sicherheit erhöhen 
-                                und ( m ) ist die zu übertragende Nachricht.
+                                : The sender uses the public key (pk) to encrypt a message. The encryption is done by calculating the ciphertext (c = (u, v)), where (u = A^T * r + e_1) and (v = t^T * r + e_2 + m). Here, (r) and (e_1, e_2) are random values that increase security, and (m) is the message to be transmitted.
                             </>
                             }
                             
@@ -442,10 +419,9 @@ const IndexPage = () =>{
                             primary={
                             <>
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                3. Entschlüsselung
+                                3. Decryption
                                 </Typography>
-                                : Der Empfänger verwendet den geheimen Schlüssel ( s ), um den Chiffretext zu entschlüsseln. 
-                                Dies geschieht durch Berechnung der Nachricht ( m ) als ( m = v - u^T * s ).
+                                : The receiver uses the secret key (s) to decrypt the ciphertext. This is done by calculating the message (m) as (m = v - u^T * s).
                             </>
                             }
                             
@@ -457,12 +433,11 @@ const IndexPage = () =>{
             </Typography>
 
             <Typography variant="h6" gutterBottom>
-            Einsatzgebiete von Kyber
+            Areas of application for Kyber
             </Typography>
             <Typography sx={{ display: 'flex', marginBottom: 3, padding: 2 }}>
                 <p>
-                Kyber wird in erster Linie für asymmetrische Verschlüsselung verwendet, d.h. für den sicheren Austausch von Schlüsseln über unsichere 
-                Kommunikationskanäle. Dies ist in einer Vielzahl von Anwendungen von zentraler Bedeutung, darunter:
+                Kyber is primarily used for asymmetric encryption, meaning the secure exchange of keys over insecure communication channels. This is crucial in a wide range of applications, including:
                 
                 <List>
                     <ListItem sx={{ display: 'list-item' }}>
@@ -470,11 +445,9 @@ const IndexPage = () =>{
                             primary={
                             <>
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                1. Sichere Kommunikation im Internet
+                                1. Secure communication on the Internet
                                 </Typography>
-                                : Heutige Webbrowser verwenden asymmetrische Kryptographie, um eine sichere Verbindung zu Websites herzustellen (z.B. über TLS/SSL). 
-                                Mit der wachsenden Bedrohung durch Quantencomputer, die traditionelle Verfahren wie RSA oder ECC brechen könnten, wird Kyber als zukünftiger 
-                                Standard angesehen, um diese Kommunikation zu schützen.
+                                : Today's web browsers use asymmetric cryptography to establish secure connections to websites (e.g., via TLS/SSL). With the growing threat posed by quantum computers, which could break traditional methods like RSA or ECC, Kyber is seen as a future standard to protect this communication.
                             </>
                             }
                             
@@ -485,10 +458,9 @@ const IndexPage = () =>{
                             primary={
                             <>
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                2. Eingebettete Systeme und IoT-Geräte
+                                2. Embedded systems and IoT devices
                                 </Typography>
-                                : Aufgrund seiner Effizienz und geringen Ressourcenanforderungen eignet sich Kyber für den Einsatz in Geräten mit begrenzter 
-                                Rechenleistung und Speicher, die dennoch sichere Kommunikation benötigen.
+                                : Due to its efficiency and low resource requirements, Kyber is well-suited for use in devices with limited computing power and memory that still require secure communication.
                             </>
                             }
                             
@@ -499,69 +471,119 @@ const IndexPage = () =>{
                             primary={
                             <>
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                3. Virtuelle Private Netzwerke (VPN)
+                                3. Virtuel Private Network (VPN)
                                 </Typography>
-                                :  VPNs verwenden asymmetrische Kryptographie, um Schlüssel für die verschlüsselte Kommunikation zwischen dem Benutzer 
-                                und dem VPN-Server auszutauschen. Auch hier bietet Kyber eine zukunftssichere Lösung.
+                                :  VPNs use asymmetric cryptography to exchange keys for encrypted communication between the user and the VPN server. Here too, Kyber offers a future-proof solution.
                             </>
                             }
                             
                         />
                     </ListItem>
                 </List>
-                Insgesamt bietet Kyber eine robuste und effiziente Lösung für das Schlüsselaustauschproblem in einer Welt, 
-                in der Quantencomputer eine reale Bedrohung für die heutige Kryptographie darstellen könnten. Seine mathematischen Grundlagen und 
-                die Effizienz der Implementierung machen es zu einem vielversprechenden Kandidaten für eine Vielzahl von Anwendungen, die langfristige 
-                Sicherheit erfordern.
+                Overall, Kyber provides a robust and efficient solution to the key exchange problem in a world where quantum computers could pose a 
+                real threat to today's cryptography. Its mathematical foundations and implementation efficiency make it a promising candidate for a wide 
+                range of applications that require long-term security.
                 </p>
               
             </Typography>
             
 
-            {/* Installations-Befehle für Einleitung */}
+            {/* Installation commands for introduction */}
             {renderCommandFields(sectionCommands.kyber)}
             <Box sx={{ marginBottom: 8 }} />
 
             <Typography sx={{ display: 'flex', marginBottom: 0, padding: 0 }}>
               <p>
-              Hier findest du einige Beispielanwendungen in den Programmiersprachen Rust, Python und C++. 
-              Diese Beispiele sollen dir helfen, die Implementierung und Nutzung der vorgestellten Algorithmen besser zu verstehen und in deinen eigenen 
-              Projekten anzuwenden.
+              Here you will find some example applications in the programming languages Rust, Python, and Go. These examples are designed to help you better understand the implementation and use of the algorithms presented, and to apply them in your own projects.
               </p>
               
             </Typography>
 
-          {/* Tab-Komponente für die Auswahl von Go, Rust und Python */}
+          {/* Tab component for the selection of Go, Rust and Python */}
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <Tabs value={kyberTabIndex} onChange={handleKyberTabChange} centered>
-                  <Tab label="C++" />
+                  <Tab label="Go" />
                   <Tab label="Rust" />
                   <Tab label="Python" />
               </Tabs>
           </Box>
 
-          {/* TabPanel für Go */}
+          {/* TabPanel for Go */}
           <TabPanel value={kyberTabIndex} index={0}>
               <Card sx={{ marginTop: 2 }}>
                   <CardContent>
-                      <Typography variant="h5">Go Code Beispiel</Typography>
+                      <Typography variant="h5">Go Code Example</Typography>
                       <Typography variant="body1" component="pre">
-                          {`package main
+                          {`
+                            Using Kyber-K2SO
 
-                            import "fmt"
+                            go get -u github.com/symbolicsoft/kyber-k2so
+                            
+                            package main
+                            
+                            import (
+                                kyberk2so "github.com/symbolicsoft/kyber-k2so"
+                                )
 
                             func main() {
-                            fmt.Println("Hello, Go!")
-                            }`}
+                                privateKey, publicKey, _ := kyberk2so.KemKeypair768()
+                                ciphertext, ssA, _ := kyberk2so.KemEncrypt768(publicKey)
+                                ssB, _ := kyberk2so.KemDecrypt768(ciphertext, privateKey)
+                                }
+                            
+                            Running Tests
+
+                            > go test -v
+
+                            === RUN   TestVectors512
+                            --- PASS: TestVectors512 (0.01s)
+                            === RUN   TestVectors768
+                            --- PASS: TestVectors768 (0.01s)
+                            === RUN   TestVectors1024
+                            --- PASS: TestVectors1024 (0.01s)
+                            === RUN   TestSelf512
+                            --- PASS: TestSelf512 (0.19s)
+                            === RUN   TestSelf768
+                            --- PASS: TestSelf768 (0.30s)
+                            === RUN   TestSelf1024
+                            --- PASS: TestSelf1024 (0.46s)
+                            PASS
+                            ok  	github.com/symbolicsoft/kyber-k2so	1.140s
+
+                            Running Benchmarks
+
+                            > go test -bench=.
+
+                            goos: linux
+                            goarch: amd64
+                            pkg: github.com/symbolicsoft/kyber-k2so
+                            BenchmarkKemKeypair512-8    	   28116	     41519 ns/op
+                            BenchmarkKemKeypair768-8    	   15864	     74150 ns/op
+                            BenchmarkKemKeypair1024-8   	   10000	    105946 ns/op
+                            BenchmarkKemEncrypt512-8    	   21409	     56336 ns/op
+                            BenchmarkKemEncrypt768-8    	   13629	     87541 ns/op
+                            BenchmarkKemEncrypt1024-8   	    9987	    131054 ns/op
+                            BenchmarkKemDecrypt512-8    	   17650	     65348 ns/op
+                            BenchmarkKemDecrypt768-8    	   12352	     99300 ns/op
+                            BenchmarkKemDecrypt1024-8   	    8913	    140804 ns/op
+                            PASS
+                            ok  	github.com/symbolicsoft/kyber-k2so	16.180s
+
+
+                            
+                            `}
+                        <Box>
+                        Quelle: <Link href="https://github.com/symbolicsoft/kyber-k2so" target="_blank" rel="noopener">GitHub Go integration</Link>
+                        </Box>
                       </Typography>
                   </CardContent>
               </Card>
           </TabPanel>
-          {/* TabPanel für Rust */}
+          {/* TabPanel for Rust */}
           <TabPanel value={kyberTabIndex} index={1}>
               <Card sx={{ marginTop: 2 }}>
                   <CardContent>
-                  <Typography variant="h5">Rust Code Beispiel</Typography>
+                  <Typography variant="h5">Rust Code Example</Typography>
                       
                       <Typography variant="body1" component="pre">
                           {`Installation
@@ -656,7 +678,7 @@ const IndexPage = () =>{
           <TabPanel value={kyberTabIndex} index={2}>
               <Card sx={{ marginTop: 2 }}>
                   <CardContent>
-                      <Typography variant="h5">Python Code Beispiel</Typography>
+                      <Typography variant="h5">Python Code Example</Typography>
                       <Typography variant="body1" component="pre">
                           {`Install
                           pip install pyky
@@ -696,19 +718,18 @@ const IndexPage = () =>{
             <Typography sx={{ display: 'flex', marginBottom: 3, padding: 2 }}>
                 <p>
                
-                Der CRYSTALS-Dilithium-Algorithmus ist ein digitaler Signaturalgorithmus, der entwickelt wurde, um besonders sichere Signaturen zu erzeugen, die auch gegen Angriffe durch Quantencomputer resistent sind. Die Sicherheit des Algorithmus basiert auf der Schwierigkeit, kurze Vektoren in Gittern zu finden, einer gut erforschten und als sicher geltenden mathematischen Problemstellung.
-                Dilithium wurde mit dem Ziel entworfen, einfach und sicher implementierbar zu sein. Dabei wurden bekannte Risiken durch Angriffe auf die Erzeugung zufälliger Geheimwerte minimiert, indem der Algorithmus auf die Erzeugung von Zufallswerten aus der Gaußschen Verteilung verzichtet. Stattdessen verwendet Dilithium ausschließlich gleichverteilte Zufallswerte, was die Implementierung erheblich vereinfacht und sicherer gegen Seitenkanalangriffe macht.
-                Ein weiteres wichtiges Designziel war die Kompaktheit der öffentlichen Schlüssel und Signaturen. In vielen Anwendungen, etwa bei Zertifikatsketten, müssen sowohl der öffentliche Schlüssel als auch die Signatur übertragen werden. Dilithium minimiert die Summe dieser beiden Parameter, ohne die Sicherheit zu gefährden. Auf diese Weise ist der Algorithmus besonders für ressourcenbeschränkte Umgebungen geeignet, in denen Speicherplatz und Bandbreite begrenzt sind.
-                Das Signaturverfahren basiert auf einem sogenannten Fiat-Shamir-Ansatz mit Unterbrechungen, das bereits seit vielen Jahren in der Kryptographie verwendet wird. Es nutzt eine Kombination aus gitterbasierten Algorithmen, um sichere Signaturen zu erstellen und zu verifizieren .
+                The CRYSTALS-Dilithium algorithm is a digital signature algorithm designed to generate highly secure signatures that are resistant to attacks from quantum computers. The security of the algorithm is based on the difficulty of finding short vectors in lattices, a well-researched and widely considered secure mathematical problem.
+                Dilithium was designed with the goal of being simple and secure to implement. Known risks from attacks on the generation of random secret values were minimized by avoiding the use of random values from the Gaussian distribution. Instead, Dilithium exclusively uses uniformly distributed random values, which significantly simplifies implementation and makes it more resistant to side-channel attacks.
+                Another important design goal was the compactness of public keys and signatures. In many applications, such as certificate chains, both the public key and the signature must be transmitted. Dilithium minimizes the sum of these two parameters without compromising security. This makes the algorithm particularly suitable for resource-constrained environments where storage space and bandwidth are limited.
+                The signature scheme is based on a so-called Fiat-Shamir with aborts approach, which has been used in cryptography for many years. It utilizes a combination of lattice-based algorithms to generate and verify secure signatures.
                 </p>
             </Typography>
             <Typography variant="h6" gutterBottom>
-            Funktionsweise von Dilithium
+            How dilithium works
             </Typography>
             <Typography sx={{ display: 'flex', marginBottom: 3, padding: 2 }}>
                 <p>
-                Dilithium basiert auf dem mathematischen Konzept des „Fiat-Shamir mit Abbrüchen“-Ansatzes und nutzt das 
-                Modul-Learning-with-Errors-Problem (Module-LWE), ein schwer zu lösendes Gitterproblem. Der Signaturalgorithmus arbeitet in drei Schritten:
+                Dilithium is based on the mathematical concept of the "Fiat-Shamir with aborts" approach and utilizes the Module Learning-with-Errors (Module-LWE) problem, a hard-to-solve lattice problem. The signature algorithm operates in three steps:
                 
                 <List>
                     <ListItem sx={{ display: 'list-item' }}>
@@ -716,12 +737,9 @@ const IndexPage = () =>{
                             primary={
                             <>
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                1. Schlüsselerzeugung
+                                1. Key generation
                                 </Typography>
-                                : Zuerst wird eine Gitterstruktur in Form einer Matrix A erzeugt. 
-                                Dann werden die geheimen Schlüssel s_1 und s_2 zufällig generiert, während der öffentliche Schlüssel durch t = A * s_1 + s_2 
-                                bestimmt wird. Der öffentliche Schlüssel besteht aus der Matrix A und einem Teil von t, während die geheimen Schlüssel s_1 und s_2 
-                                geheim gehalten werden.
+                                : First, a lattice structure in the form of a matrix A is generated. Then, the secret keys s_1 and s_2 are randomly generated, while the public key is determined by t = A * s_1 + s_2. The public key consists of the matrix A and a part of t, while the secret keys s_1 and s_2 are kept private.
                             </>
                             }
                             
@@ -732,11 +750,9 @@ const IndexPage = () =>{
                             primary={
                             <>
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                2. Signaturerzeugung
+                                2. Signature generation
                                 </Typography>
-                                : Um eine Nachricht M zu signieren, generiert der Absender eine Zufallsmaske y und berechnet w = A * y. 
-                                Die Signatur z wird als z = y + c * s_1 erzeugt, wobei c eine Hash-Wert-Herausforderung ist, die auf der Nachricht M und 
-                                einem Teil von w basiert.
+                                : To sign a message M, the sender generates a random mask y and computes w = A * y. The signature z is then generated as z = y + c * s_1, where c is a hash-based challenge derived from the message M and a part of w.
                             </>
                             }
                             
@@ -747,11 +763,9 @@ const IndexPage = () =>{
                             primary={
                             <>
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                3. Verifikation
+                                3. Verification
                                 </Typography>
-                                : Der Verifizierer überprüft die Signatur, indem er überprüft, ob die hohen Bits des berechneten Wertes A * z - c * t 
-                                übereinstimmen und ob die Hash-Herausforderung korrekt rekonstruiert werden kann. Dies gewährleistet, dass die Signatur 
-                                authentisch und gültig ist.
+                                : The verifier checks the signature by verifying whether the higher bits of the computed value A * z - c * t match and whether the hash challenge can be correctly reconstructed. This ensures that the signature is authentic and valid.
                             </>
                             }
                             
@@ -763,11 +777,11 @@ const IndexPage = () =>{
             </Typography>
 
             <Typography variant="h6" gutterBottom>
-            Einsatzgebiete von Dilithium
+            Areas of application for dilithium
             </Typography>
             <Typography sx={{ display: 'flex', marginBottom: 3, padding: 2 }}>
                 <p>
-                Dilithium ist für digitale Signaturen optimiert und findet in vielen sicherheitskritischen Anwendungen Einsatz:
+                Dilithium is optimised for digital signatures and is used in many security-critical applications:
                 
                 <List>
                     <ListItem sx={{ display: 'list-item' }}>
@@ -775,10 +789,9 @@ const IndexPage = () =>{
                             primary={
                             <>
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                1. Software-Updates und Code-Signaturen
+                                1. Software updates and code signatures
                                 </Typography>
-                                : Digitale Signaturen, wie die von Dilithium erzeugten, werden verwendet, um die Integrität und Authentizität von Software-Updates sicherzustellen. 
-                                Dies ist von entscheidender Bedeutung, um sicherzustellen, dass Software nicht von einem Angreifer manipuliert wurde.
+                                : Digital signatures, such as those generated by Dilithium, are used to ensure the integrity and authenticity of software updates. This is crucial to guarantee that the software has not been tampered with by an attacker.
                             </>
                             }
                             
@@ -789,10 +802,9 @@ const IndexPage = () =>{
                             primary={
                             <>
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                2. Authentifizierungsprotokolle
+                                2. Authentication protocols
                                 </Typography>
-                                : Dilithium wird in Authentifizierungsprotokollen eingesetzt, bei denen es wichtig ist, die Identität eines 
-                                Benutzers oder eines Geräts zu überprüfen, z. B. in IoT-Geräten oder in sicheren Kommunikationssystemen.
+                                : Dilithium is used in authentication protocols where it is important to verify the identity of a user or device, such as in IoT devices or secure communication systems.
                             </>
                             }
                             
@@ -803,23 +815,23 @@ const IndexPage = () =>{
                             primary={
                             <>
                                 <Typography component="span" sx={{ textTransform: 'uppercase', fontWeight: 'bold' }}>
-                                3. Langzeit-Sicherheit
+                                3. Long-term safety
                                 </Typography>
-                                :  Da Quantencomputer in der Zukunft bestehende kryptografische Verfahren wie RSA und ECC brechen könnten, 
-                                bietet Dilithium eine Lösung für Anwendungen, die langfristige Sicherheit erfordern, wie z. B. in staatlichen oder 
-                                militärischen Systemen.
+                                :  Since quantum computers could potentially break existing cryptographic methods like RSA and ECC in the future, Dilithium offers a solution for applications that require long-term security, such as in government or military systems.
                             </>
                             }
                             
                         />
                     </ListItem>
                 </List>
-                Dilithium bietet eine effiziente und zukunftssichere Lösung für digitale Signaturen in einer Zeit, in der Quantencomputer 
-                eine zunehmende Bedrohung darstellen. Seine mathematischen Grundlagen machen es zu einem der vielversprechendsten Algorithmen 
-                für den Einsatz in sicherheitskritischen Bereichen, die sowohl hohe Sicherheit als auch Performance erfordern.
+                Dilithium offers an efficient and future-proof solution for digital signatures in an era where quantum computers pose an increasing threat. Its mathematical foundations make it one of the most promising algorithms for use in security-critical areas that require both high security and performance.
                 </p>
               
             </Typography>
+
+            {/* Installations-Befehle für Post-Quantum Kryptographie */}
+          {renderCommandFields(sectionCommands.dilithium)}
+          <Box sx={{ marginBottom: 8 }} />
           
           
           
@@ -828,34 +840,84 @@ const IndexPage = () =>{
           {/* Tab-Komponente für die Auswahl von Java, Rust und Python */}
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <Tabs value={dilithiumTabIndex} onChange={handleDilithiumTabChange} centered>
-                  <Tab label="Go" />
+                  <Tab label="Drat" />
                   <Tab label="Rust" />
                   <Tab label="Java" />
               </Tabs>
           </Box>
 
-          {/* TabPanel für Go */}
+          {/* TabPanel for Go */}
           <TabPanelDilithium value={dilithiumTabIndex} index={0}>
               <Card sx={{ marginTop: 2 }}>
                   <CardContent>
-                      <Typography variant="h5">Go Code Beispiel</Typography>
+                      <Typography variant="h5">Dart Code Example</Typography>
                       <Typography variant="body1" component="pre">
-                          {`package main BIANANSNASNC
+                          {`
+                            import 'dart:convert';
+                            import 'dart:math';
+                            import 'dart:typed_data';
 
-                            import "fmt"
+                            import 'package:dilithium_crypto/dilithium_crypto.dart';
 
-                            func main() {
-                            fmt.Println("Hello, Go!")
-                            }`}
+                            Uint8List randomSeed() {
+                            final random = Random.secure();
+                            return Uint8List.fromList(
+                                List<int>.generate(Dilithium.SEEDBYTES, (_) => random.nextInt(256)));
+                            }
+
+                            void main() {
+                            // generate key pair
+                            final DilithiumKeyPair keyPair = Dilithium.generateKeyPair(
+                                DilithiumParameterSpec.LEVEL3,
+                                randomSeed()); // Level2 or Level5 can be used as well
+
+                            // create signature
+                            final Uint8List validMsg = utf8.encode("Valid Message");
+                            final Uint8List signature = Dilithium.sign(keyPair.privateKey, validMsg);
+
+                            // verify signature with the public key and the message
+                            bool isValid = Dilithium.verify(keyPair.publicKey, signature, validMsg);
+                            assert(isValid);
+
+                            // verify signature with a modified message --> should be marked as invalid
+                            final modifiedMsg = utf8.encode("Modified Message");
+                            isValid = Dilithium.verify(keyPair.publicKey, signature, modifiedMsg);
+                            assert(!isValid);
+
+                            // obtain byte representation of the keys
+                            Uint8List publicKeyBytes = keyPair.publicKey.serialize();
+                            Uint8List privateKeyBytes = keyPair.privateKey.serialize();
+
+                            print("Private Key:");
+                            print(privateKeyBytes);
+                            print("Public Key:");
+                            print(publicKeyBytes);
+
+                            // recreate keys from byte representation
+                            DilithiumPublicKey recreatedPublicKey = DilithiumPublicKey.deserialize(
+                                DilithiumParameterSpec.LEVEL3, publicKeyBytes);
+                            DilithiumPrivateKey recreatedPrivateKey = DilithiumPrivateKey.deserialize(
+                                DilithiumParameterSpec.LEVEL3, privateKeyBytes);
+
+                            // prove that the recreated keys are working
+                            final newMsg = utf8.encode("New Message");
+                            final Uint8List newSignature = Dilithium.sign(recreatedPrivateKey, newMsg);
+                            isValid = Dilithium.verify(recreatedPublicKey, newSignature, newMsg);
+                            assert(isValid);
+                            }
+                            `}
+                            <Box>
+                            Quelle: <Link href="https://pub.dev/packages/dilithium_crypto" target="_blank" rel="noopener">Dart integration</Link>
+                        </Box>
                       </Typography>
                   </CardContent>
               </Card>
           </TabPanelDilithium>
-          {/* TabPanel für Rust */}
+          {/* TabPanel for Rust */}
           <TabPanelDilithium value={dilithiumTabIndex} index={1}>
               <Card sx={{ marginTop: 2 }}>
                   <CardContent>
-                  <Typography variant="h5">Rust Code Beispiel</Typography>
+                  <Typography variant="h5">Rust Code Example</Typography>
                       
                       <Typography variant="body1" component="pre">
                           {`Installation
@@ -903,11 +965,11 @@ const IndexPage = () =>{
                       </Typography>
                   </CardContent>
               </Card>
-          </TabPanelDilithium>{/* TabPanel für Java */}
+          </TabPanelDilithium>{/* TabPanel for Java */}
           <TabPanelDilithium value={dilithiumTabIndex} index={2}>
               <Card sx={{ marginTop: 2 }}>
                   <CardContent>
-                      <Typography variant="h5">Java Code Beispiel</Typography>
+                      <Typography variant="h5">Java Code Example</Typography>
                       <Typography variant="body1" component="pre">
                           {`Loading the security provider
                             DilithiumProvider provider = new DilithiumProvider();
@@ -957,7 +1019,7 @@ const IndexPage = () =>{
               </Card>
           </TabPanelDilithium>
       
-          {/* Snackbar für Rückmeldung nach dem Kopieren */}
+          {/* Snack bar for feedback after copying */}
           <Snackbar
               open={snackbarOpen}
               autoHideDuration={3000}
@@ -965,31 +1027,19 @@ const IndexPage = () =>{
               message={snackbarMessage}
           />
 
-            <Typography sx={{ display: 'flex', marginBottom: 3, padding: 2 }}>
-              <p>
-              <h3>######</h3>
-
-              Post-Quantum Kryptographie (PQC) bezieht sich auf kryptographische Algorithmen, 
-              die resistent gegen die Angriffe von Quantencomputern sind. Während klassische Kryptosysteme wie RSA und ECC (Elliptic Curve Cryptography) 
-              auf mathematischen Problemen basieren, die für klassische Computer schwierig zu lösen sind, 
-              könnten leistungsstarke Quantencomputer diese Probleme in einer für uns alarmierend kurzen Zeit lösen. 
-              Die Notwendigkeit für PQC liegt in der Tatsache, dass unsere derzeitigen kryptographischen Systeme verwundbar sind und wir uns darauf vorbereiten müssen, 
-              zukünftige Sicherheitsanforderungen zu erfüllen.
-              </p>
-          </Typography>
-          {/* Installations-Befehle für Post-Quantum Kryptographie */}
-          {renderCommandFields(sectionCommands.dilithium)}
-          <Box sx={{ marginBottom: 8 }} />
+            <Box sx={{ marginBottom: 12 }} />
+          
 
           <Typography variant="h3" gutterBottom sx={{ display: 'flex', marginBottom: 3, marginTop: 2, padding: 1 }}>OpenSSL</Typography>
 
           <Typography sx={{ display: 'flex', marginBottom: 3, padding: 2 }}>
               <p>
 
-                OpenSSL, eine weit verbreitete Bibliothek für kryptographische Anwendungen und Protokolle wie TLS (Transport Layer Security), ist eine der wichtigsten Plattformen für die Implementierung solcher fortschrittlicher Verschlüsselungsmethoden. Mit der Integration von Post-Quantum-Kryptographie in OpenSSL kann sichergestellt werden, dass zukünftige Kommunikationskanäle auch vor den Bedrohungen, die durch Quantencomputer entstehen, geschützt sind.
-                Ein vielversprechendes kryptographisches Verfahren im Bereich der Post-Quantum-Kryptographie ist Kyber, welches auf der Schwierigkeit des Modulo-Gitter-Problems basiert. Kyber, ein Finalist im NIST-Wettbewerb zur Standardisierung von Post-Quantum-Kryptographie, bietet neben hoher Sicherheit auch Effizienz und wird für den Einsatz in zukünftigen sicheren Kommunikationssystemen empfohlen.
-                Diese Arbeit behandelt die Nutzung von Kyber in Verbindung mit OpenSSL. Dabei wird gezeigt, wie diese Technologie implementiert werden kann, um Quantenangriffen zu widerstehen, und welche Schritte notwendig sind, um Kyber-basierte Schlüsselvereinbarungen zu ermöglichen. Die Anpassung und Nutzung von OpenSSL mit Kyber bietet einen praxisnahen Ansatz, um zukunftssichere Verschlüsselungsmethoden in bestehende IT-Infrastrukturen zu integrieren.
-                Die folgenden Abschnitte erläutern die technischen Details zur Integration von Kyber in OpenSSL und demonstrieren, wie eine solche Lösung in gängigen Anwendungsszenarien genutzt werden kann.
+                OpenSSL, a widely used library for cryptographic applications and protocols like TLS (Transport Layer Security), is one of the most important platforms for implementing such advanced encryption methods. With the integration of post-quantum cryptography into OpenSSL, it can be ensured that future communication channels are protected from the threats posed by quantum computers.
+                A promising cryptographic scheme in the field of post-quantum cryptography is Kyber, which is based on the hardness of the module lattice problem. Kyber, a finalist in the NIST competition for the standardization of post-quantum cryptography, offers both high security and efficiency and is recommended for use in future secure communication systems.
+                This paper discusses the use of Kyber in conjunction with OpenSSL. It demonstrates how this technology can be implemented to withstand quantum attacks and outlines the steps necessary to enable Kyber-based key exchanges. The adaptation and use of OpenSSL with Kyber provides a practical approach to integrating future-proof encryption methods into existing IT infrastructures.
+                The following sections explain the technical details of integrating Kyber into OpenSSL and demonstrate how such a solution can be used in common application scenarios.
+                This version is grammatically correct and sounds natural for a native English speaker. Let me know if you need any further adjustments!
 
               </p>
             </Typography>
@@ -1000,31 +1050,27 @@ const IndexPage = () =>{
             <Typography variant="h4" gutterBottom sx={{ display: 'flex', marginBottom: 3, marginTop: 2, padding: 1 }}>Shared libraries</Typography>
             {renderCommandFields(sectionCommands.openssl2)}
             <Box marginTop={3}>
-                Quelle: <Link href="https://github.com/pq-crystals/kyber" target="_blank" rel="noopener">GitHub </Link>
+                Quelle: <Link href="https://github.com/pq-crystals/kyber" target="_blank" rel="noopener">GitHub Openssl</Link>
             </Box>
 
           
+            <Box sx={{ marginBottom: 8 }} />
 
-
-          <Typography sx={{ display: 'flex', marginBottom: 3, padding: 2 }}>
-              <p>
-              <h3>Die wichtigsten Ansätze in der Post-Quantum Kryptographie</h3>
-
-              
-              </p>
-          </Typography>
-
+          
             <Typography variant="body1" gutterBottom>
-            Einsatzgebiete von Kyber Die Entwicklung von Quantencomputern schreitet schneller voran, als viele erwartet haben. Mit der Aussicht, 
-              dass ein Quantencomputer in naher Zukunft die RSA-Verschlüsselung brechen könnte – eine Technologie, 
-              die weit verbreitet für sichere Kommunikation verwendet wird – ist die Zeit für die Einführung von PQC jetzt. 
-              Unternehmen und Regierungen weltweit beginnen bereits, sich auf diese neue Herausforderung vorzubereiten. 
-              Die Einführung von PQC ist nicht nur eine Frage der technischen Anpassung, sondern auch eine strategische Entscheidung, 
-              die weitreichende Auswirkungen auf die nationale Sicherheit, den Datenschutz und die globale digitale Infrastruktur hat.
+            In conclusion, we have now reached the end of this brief introduction and journey into the fascinating world of Post-Quantum Cryptography (PQC). The urgency to develop secure encryption methods for the future is more relevant today than ever, especially with the emergence of quantum computers. While these promise immense advances in computational power, they also pose a serious threat to the classical cryptographic methods we currently rely on.
+            </Typography>
+            <Box sx={{ marginBottom: 3 }} />
+            <Typography variant="body1" gutterBottom>
+            The standardization and integration of PQC algorithms into existing systems will be a crucial step in ensuring information security in the quantum era. These new cryptographic methods are essential for securing data, especially in areas such as online banking, e-commerce, and communication technologies. Companies and developers should already begin implementing these technologies to be prepared for future threats.
+            </Typography>
+            <Box sx={{ marginBottom: 3 }} />
+            <Typography variant="body1" gutterBottom>
+            It will be exciting to see which algorithms will ultimately define the security standards of the future. I hope I have succeeded in giving you an initial insight into this topic and sparking your interest. Engaging with Post-Quantum Cryptography is not only important for experts but affects all of us. The security of our digital world largely depends on how well we prepare for the challenges of the quantum revolution.
             </Typography>
 
-
-          <Button onClick={handleOnClick} variant='contained' color='secondary' sx={{ marginTop: 3 }}>Weiter zur About-Seite</Button>
+            <Box sx={{ marginBottom: 12 }} />
+          
       </Box>
       
 

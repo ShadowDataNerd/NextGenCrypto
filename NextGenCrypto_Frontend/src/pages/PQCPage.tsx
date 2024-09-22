@@ -1,4 +1,4 @@
-import { Accordion, AccordionActions, AccordionDetails, AccordionSummary, Box, Button, Paper, Typography } from "@mui/material"
+import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from "@mui/material"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 
@@ -13,30 +13,27 @@ const PQCPage = () =>{
         <Box sx={{ marginBottom: 10 }} />
         <Typography variant="h1" gutterBottom sx={{ display: 'flex', marginBottom: 3, marginTop: 2, padding: 1 }}>FAQ</Typography>
         <Box sx={{ padding: 1 }}></Box>
-        <Typography variant="h3" gutterBottom sx={{ display: 'flex', marginBottom: 3, marginTop: 2, padding: 1 }}>Häufig gestellte Fragen zur Post-Quantum-Kryptographie</Typography>
+        <Typography variant="h3" gutterBottom sx={{ display: 'flex', marginBottom: 3, marginTop: 2, padding: 1 }}>Frequently asked questions about post-quantum cryptography</Typography>
         
 
         
         
     <Box>
       <Typography sx={{marginTop: 2, marginBottom: 2}}>
-          Die Entwicklung der Quantencomputer-Technologie schreitet schnell voran und stellt eine wachsende Bedrohung für herkömmliche kryptografische Verfahren dar. 
-          Post-Quantum-Kryptographie (PQC) bietet einen Ausweg: Sie zielt darauf ab, Verschlüsselungsmethoden zu entwickeln, die auch den Angriffen zukünftiger Quantencomputer standhalten können. 
-          Diese FAQ-Seite soll grundlegende Fragen zur Post-Quantum-Kryptographie beantworten, insbesondere für Unternehmen, CTOs und Sicherheitsbeauftragte, die sich auf diese kommende Herausforderung vorbereiten möchten.
-
-          Disclaimer:
-          Die Informationen auf dieser Seite basieren auf den aktuellen Empfehlungen und Veröffentlichungen des Bundesamts für Sicherheit in der Informationstechnik (BSI) und des National Institute of Standards and Technology (NIST). 
-          Es ist jedoch zu beachten, dass das Thema Post-Quantum-Kryptographie ein hochdynamisches und sich schnell veränderndes Feld ist. Neue Erkenntnisse und Entwicklungen können diese Informationen schnell veralten lassen. 
-          Wir empfehlen daher, regelmäßig aktuelle Berichte von offiziellen Stellen wie BSI und NIST zu konsultieren.
+      The development of quantum computing technology is advancing rapidly and poses a growing threat to conventional cryptographic methods. Post-Quantum 
+      Cryptography (PQC) offers a solution: it aims to develop encryption methods that can withstand attacks from future quantum computers. This FAQ page is 
+      designed to answer basic questions about Post-Quantum Cryptography, particularly for companies, CTOs, and security officers preparing for this upcoming 
+      challenge.
 
       </Typography>
       <Typography variant="h6" gutterBottom sx={{ display: 'flex', marginBottom: 1, marginTop: 2, padding: 0 }}>Disclaimer:</Typography>
       <Typography sx={{marginTop: 1, marginBottom: 2}}>
         
           
-          Die Informationen auf dieser Seite basieren auf den aktuellen Empfehlungen und Veröffentlichungen des Bundesamts für Sicherheit in der Informationstechnik (BSI) und des National Institute of Standards and Technology (NIST). 
-          Es ist jedoch zu beachten, dass das Thema Post-Quantum-Kryptographie ein hochdynamisches und sich schnell veränderndes Feld ist. Neue Erkenntnisse und Entwicklungen können diese Informationen schnell veralten lassen. 
-          Wir empfehlen daher, regelmäßig aktuelle Berichte von offiziellen Stellen wie BSI und NIST zu konsultieren.
+      The information on this page is based on current recommendations and publications from the Federal Office for Information Security (BSI) and the National 
+      Institute of Standards and Technology (NIST). However, it is important to note that the topic of Post-Quantum Cryptography is a highly dynamic and rapidly 
+      evolving field. New insights and developments can quickly render this information outdated. Therefore, we recommend regularly consulting up-to-date reports 
+      from official bodies such as BSI and NIST.
 
       </Typography>
 
@@ -51,14 +48,13 @@ const PQCPage = () =>{
           aria-controls="panel1-content"
           id="panel1-header"
         >
-          1. Was ist Post-Quantum-Kryptographie?
+          1. What is post-quantum cryptography?
         </AccordionSummary>
         <AccordionDetails>
           
-          Post-Quantum-Kryptographie (PQC) bezeichnet eine Reihe von kryptografischen Algorithmen, 
-          die gegen die Angriffe von Quantencomputern resistent sind. Diese Algorithmen basieren auf mathematischen Problemen, 
-          die auch mit der enormen Rechenleistung von Quantencomputern nicht effizient gelöst werden können. Ziel ist es, 
-          die Datenintegrität und Vertraulichkeit auch in einer Welt sicherzustellen, in der leistungsfähige Quantencomputer existieren.
+        Post-Quantum Cryptography (PQC) refers to a set of cryptographic algorithms that are resistant to attacks by quantum computers. 
+        These algorithms are based on mathematical problems that cannot be efficiently solved, even with the immense computational power of quantum computers. 
+        The goal is to ensure data integrity and confidentiality in a world where powerful quantum computers exist.
         </AccordionDetails>
       </Accordion>
 
@@ -68,13 +64,12 @@ const PQCPage = () =>{
           aria-controls="panel2-content"
           id="panel2-header"
         >
-          2. Warum sind herkömmliche kryptografische Verfahren durch Quantencomputer bedroht?
+          2. Why are conventional cryptographic methods threatened by quantum computers?
         </AccordionSummary>
         <AccordionDetails>
-        Herkömmliche kryptografische Algorithmen wie RSA und elliptische Kurven-Kryptographie (ECC) basieren auf der Schwierigkeit, 
-        bestimmte mathematische Probleme zu lösen (z. B. Faktorisierung großer Zahlen). Quantencomputer, insbesondere durch den Shor-Algorithmus, 
-        könnten diese Probleme effizient lösen und damit die Sicherheit dieser Algorithmen gefährden. Dies bedeutet, 
-        dass ein ausreichend leistungsstarker Quantencomputer in der Lage wäre, diese Verschlüsselungen zu brechen.
+        Conventional cryptographic algorithms like RSA and elliptic curve cryptography (ECC) are based on the difficulty of solving certain mathematical 
+        problems (e.g., factoring large numbers). Quantum computers, particularly through Shor's algorithm, could solve these problems efficiently, thereby 
+        compromising the security of these algorithms. This means that a sufficiently powerful quantum computer could break these encryptions.
         </AccordionDetails>
       </Accordion>
 
@@ -84,13 +79,12 @@ const PQCPage = () =>{
           aria-controls="panel3-content"
           id="panel3-header"
         >
-          3. Wie funktionieren Quantencomputer und warum stellen sie eine Bedrohung dar?
+          3. How do quantum computers work and why do they pose a threat?
         </AccordionSummary>
         <AccordionDetails>
-        Quantencomputer nutzen die Prinzipien der Quantenmechanik, wie Superposition und Verschränkung, um Berechnungen durchzuführen. 
-        Während klassische Computer Informationen in Bits speichern (0 oder 1), nutzen Quantencomputer sogenannte Qubits, 
-        die gleichzeitig in mehreren Zuständen existieren können. Diese Eigenschaft ermöglicht es Quantencomputern, bestimmte Berechnungen, 
-        wie die Faktorisierung großer Zahlen, exponentiell schneller durchzuführen als klassische Computer.
+        Quantum computers leverage the principles of quantum mechanics, such as superposition and entanglement, to perform computations. 
+        While classical computers store information in bits (0 or 1), quantum computers use qubits, which can exist in multiple states simultaneously. 
+        This property allows quantum computers to perform certain computations, like factoring large numbers, exponentially faster than classical computers.
         </AccordionDetails>
       </Accordion>
 
@@ -100,12 +94,12 @@ const PQCPage = () =>{
           aria-controls="panel4-content"
           id="panel4-header"
         >
-          4. Welche Algorithmen gelten als quantensicher?
+          4. Which algorithms are considered quantum-safe?
         </AccordionSummary>
         <AccordionDetails>
-        Es gibt mehrere vielversprechende quantensichere Algorithmen, die derzeit im Rahmen des NIST-Standardisierungsprozesses evaluiert werden. 
-        Dazu gehören Algorithmen, die auf gitterbasierten, codebasierten und multivariaten Systemen basieren. 
-        Beispiele sind CRYSTALS-Kyber und CRYSTALS-Dilithium für Schlüsselaustausch und digitale Signaturen.
+        There are several promising quantum-safe algorithms currently being evaluated as part of the NIST standardization process. 
+        These include algorithms based on lattice-based, code-based, and multivariate systems. Examples include CRYSTALS-Kyber for key exchange and 
+        CRYSTALS-Dilithium for digital signatures.
         </AccordionDetails>
       </Accordion>
 
@@ -115,12 +109,11 @@ const PQCPage = () =>{
           aria-controls="panel5-content"
           id="panel5-header"
         >
-          5. Wie lange wird es noch dauern, bis Quantencomputer herkömmliche Kryptografie brechen können?
+          5. How long will it be before quantum computers can break conventional cryptography?
         </AccordionSummary>
         <AccordionDetails>
-        Schätzungen gehen davon aus, dass es noch etwa 10 bis 15 Jahre dauern könnte, bis ein voll funktionsfähiger Quantencomputer entwickelt wird, 
-        der in der Lage ist, die gängigen Kryptosysteme zu brechen. Die Forschung und Entwicklung auf diesem Gebiet ist jedoch schnelllebig, weshalb es schwierig ist, 
-        genaue Prognosen zu treffen.
+        Estimates suggest that it may take another 10 to 15 years to develop a fully functional quantum computer capable of breaking common cryptosystems. 
+        However, research and development in this field is progressing rapidly, making it difficult to provide precise predictions.
         </AccordionDetails>
       </Accordion>
 
@@ -130,13 +123,12 @@ const PQCPage = () =>{
           aria-controls="panel6-content"
           id="panel6-header"
         >
-          6. Wie unterscheidet sich Post-Quantum-Kryptographie von klassischer Kryptographie?
+          6. How does post-quantum cryptography differ from classical cryptography?
         </AccordionSummary>
         <AccordionDetails>
-        Der Hauptunterschied liegt in den mathematischen Problemen, auf denen die Sicherheit der Algorithmen basiert. 
-        Klassische Kryptosysteme basieren oft auf Problemen wie der Faktorisierung großer Zahlen oder dem diskreten Logarithmus, 
-        während PQC auf schwierigeren Problemen wie der Lösung von Gitterproblemen, isogeniebasierten Ansätzen oder Multivariat-Polynomen basiert. 
-        Diese Probleme bleiben auch für Quantencomputer schwierig.
+        The main difference lies in the mathematical problems on which the security of the algorithms is based. 
+        Classical cryptosystems often rely on problems like factoring large numbers or the discrete logarithm, whereas PQC is based on more complex problems 
+        such as solving lattice problems, isogeny-based approaches, or multivariate polynomials. These problems remain difficult even for quantum computers.
         </AccordionDetails>
       </Accordion>
 
@@ -146,12 +138,12 @@ const PQCPage = () =>{
           aria-controls="panel7-content"
           id="panel7-header"
         >
-          7. Welche Schritte unternehmen Organisationen wie das BSI und NIST zur Standardisierung von Post-Quantum-Kryptographie?
+          7. What steps are organisations such as the BSI and NIST taking to standardise post-quantum cryptography?
         </AccordionSummary>
         <AccordionDetails>
-        Sowohl das BSI als auch das NIST arbeiten aktiv an der Erforschung und Standardisierung von Post-Quantum-Kryptographie. 
-        Das NIST leitet seit 2016 einen Wettbewerb zur Auswahl der robustesten quantensicheren Algorithmen. 
-        Das BSI bietet parallel dazu Richtlinien für Unternehmen und Organisationen, wie der Übergang zu quantensicheren Lösungen geplant und umgesetzt werden kann.
+        Both BSI and NIST are actively working on the research and standardization of post-quantum cryptography. 
+        Since 2016, NIST has been leading a competition to select the most robust quantum-safe algorithms. In parallel, 
+        BSI provides guidelines for companies and organizations on how to plan and implement the transition to quantum-secure solutions.
         </AccordionDetails>
       </Accordion>
 
@@ -161,13 +153,12 @@ const PQCPage = () =>{
           aria-controls="panel8-content"
           id="panel8-header"
         >
-          8. Wie können Unternehmen und Regierungen sich auf die Ära der Quantencomputer vorbereiten?
+          8. How can companies and governments prepare for the era of quantum computing?
         </AccordionSummary>
         <AccordionDetails>
-        Unternehmen und Regierungen sollten sich frühzeitig auf den Übergang zu quantensicheren Algorithmen vorbereiten. 
-        Das bedeutet, bestehende kryptografische Infrastrukturen zu überprüfen, 
-        hybride Systeme zu implementieren (die sowohl klassische als auch quantensichere Algorithmen nutzen) 
-        und einen langfristigen Plan für den Wechsel zu Post-Quantum-Kryptographie zu entwickeln.
+        Companies and governments should begin preparing early for the transition to quantum-safe algorithms. 
+        This means reviewing existing cryptographic infrastructures, implementing hybrid systems (that use both classical and quantum-safe algorithms), 
+        and developing a long-term plan for transitioning to post-quantum cryptography.
         </AccordionDetails>
       </Accordion>
 
@@ -177,12 +168,11 @@ const PQCPage = () =>{
           aria-controls="panel9-content"
           id="panel9-header"
         >
-          9. Sind die derzeitigen Verschlüsselungen, die wir täglich nutzen, in Gefahr?
+          9. Are the current encryptions we use every day in danger?
         </AccordionSummary>
         <AccordionDetails>
-        Ja, aber nicht unmittelbar. Die meisten heutigen Verschlüsselungen sind anfällig für Quantenangriffe, 
-        aber solange keine großen Quantencomputer existieren, sind diese Systeme sicher. Es wird jedoch empfohlen, 
-        sich schon jetzt auf quantensichere Lösungen vorzubereiten, um langfristige Datensicherheit zu gewährleisten.
+        Yes, but not immediately. Most of today’s encryption methods are vulnerable to quantum attacks, but as long as large-scale quantum computers do not yet exist, 
+        these systems remain secure. However, it is recommended to start preparing for quantum-safe solutions now to ensure long-term data security.
         </AccordionDetails>
       </Accordion>
 
@@ -192,34 +182,19 @@ const PQCPage = () =>{
           aria-controls="panel10-content"
           id="panel10-header"
         >
-          10. Was sollten Entwickler und IT-Sicherheitsfachleute jetzt tun, um sich auf Post-Quantum-Kryptographie vorzubereiten?
+          10. What should developers and IT security professionals do now to prepare for post-quantum cryptography?
         </AccordionSummary>
         <AccordionDetails>
-        IT-Sicherheitsfachleute sollten sich mit den Entwicklungen im Bereich der Post-Quantum-Kryptographie vertraut machen und den Übergang zu quantensicheren Algorithmen aktiv planen. 
-        Das Implementieren hybrider Systeme, die sowohl klassische als auch PQC-Algorithmen nutzen, ist eine empfohlene Strategie. 
-        Zudem sollte die Kryptografie-Infrastruktur regelmäßig überprüft und zukunftssicher gestaltet werden.
+        IT security professionals should familiarize themselves with developments in the field of post-quantum cryptography and actively 
+        plan the transition to quantum-safe algorithms. Implementing hybrid systems that use both classical and PQC algorithms is a recommended strategy. 
+        Additionally, cryptographic infrastructure should be regularly reviewed and made future-proof.
         </AccordionDetails>
       </Accordion>
       
 
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel13-content"
-          id="panel13-header"
-        >
-          Noch weite??????????
-        </AccordionSummary>
-        <AccordionDetails>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
-        </AccordionDetails>
-        <AccordionActions>
-          <Button>Cancel</Button>
-          <Button>Agree</Button>
-        </AccordionActions>
-      </Accordion>
+      
     </div>
+    <Box sx={{ marginBottom: 12 }} />
 
 
         

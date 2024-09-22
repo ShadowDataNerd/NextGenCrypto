@@ -2,47 +2,46 @@ import { Box, Button, Typography, TextField, Alert, Dialog, DialogTitle, DialogC
 import { useEffect, useState } from "react";
 import axios from 'axios';
 
-// API Server URL (lokale Verbindung)
+// API server URL (local connection)
 const API_BASE_URL = import.meta.env.VITE_BACKEND_BASEURL ?? "http://127.0.0.1:5555";
 
 const ToolPage: React.FC = () => {
-    const [url, setUrl] = useState<string>(""); // User-input für die URL
-    const [jsonData, setJsonData] = useState<string>(""); // API response data
-    const [error, setError] = useState<string | null>(null); // Error state
+    const [url, setUrl] = useState<string>(""); 
+    const [jsonData, setJsonData] = useState<string>(""); 
+    const [error, setError] = useState<string | null>(null); 
 
-    const [open, setOpen] = useState<boolean>(false); // State to control the popup
-    const [popupText, setPopupText] = useState<string>("Dies ist eine Warnung!"); // Text for the popup
-
+    const [open, setOpen] = useState<boolean>(false); 
+    const [popupText, setPopupText] = useState<string>("This is a Warning!"); 
     useEffect(() => {
-        setPopupText("Achtung: Dieses Tool ist experimentell und kann instabil sein."); // Set the warning message for the popup
-        setOpen(true); // Opens the popup when the page loads
+        setPopupText("Warning: This tool is in the experimental stage and may be unstable. It stores your data. Please use the tool only if you agree to this."); 
+        setOpen(true); 
     }, []);
 
     const handleFetchApi = async () => {
-        setError(null); // Reset error state
-        setJsonData(""); // Reset JSON data
+        setError(null); 
+        setJsonData(""); 
     
         if (!url) {
-            setError("Bitte geben Sie eine gültige URL ein.");
+            setError("Please enter a valid URL.");
             return;
         }
     
         try {
-            // Die URL wird jetzt als Query-Parameter in der POST-Anfrage verwendet
+            // The URL is now used as a query parameter in the POST request
             const response = await axios.post(`${API_BASE_URL}/server-info?url=${encodeURIComponent(url)}`);
-            setJsonData(JSON.stringify(response.data, null, 2)); // JSON-Daten formatieren
+            setJsonData(JSON.stringify(response.data, null, 2)); 
         } catch (err) {
             if (axios.isAxiosError(err)) {
                 if (err.response) {
                     setError(`Fehler ${err.response.status}: ${err.response.statusText}`);
                 } else if (err.request) {
-                    setError("Keine Antwort vom Server. Überprüfen Sie die URL oder Ihre Netzwerkverbindung.");
+                    setError("No response from the server. Check the URL or your network connection.");
                 } else {
-                    setError("Fehler bei der Anfrage. Überprüfen Sie die URL und versuchen Sie es erneut.");
+                    setError("Error with the request. Check the URL and try again.");
                 }
             } else {
-                setError("Ein unerwarteter Fehler ist aufgetreten.");
-                setOpen(true); // Öffnet den Warn-Dialog bei Fehlern
+                setError("An unexpected error has occurred.");
+                setOpen(true); 
             }
         }
     };
@@ -59,7 +58,7 @@ const ToolPage: React.FC = () => {
             <Typography variant="h2" gutterBottom>Post Quantum Cryptography</Typography>
             <Typography variant="body1" gutterBottom>Check your URL</Typography>
 
-            {/* Eingabefeld für die URL */}
+            {/* Input field for the URL */}
             <TextField
                 fullWidth
                 label="API-URL eingeben"
@@ -70,19 +69,19 @@ const ToolPage: React.FC = () => {
                 error={Boolean(error)}
             />
 
-            {/* Button, um die API abzurufen */}
+            {/* Button to call up the API */}
             <Button variant="contained" color="primary" onClick={handleFetchApi}>
-                API abrufen
+            Retrieve API
             </Button>
 
-            {/* Error-Message (wenn vorhanden) */}
+            {/* Error message (if available) */}
             {error && (
                 <Alert severity="error" sx={{ marginTop: 2 }}>
                     {error}
                 </Alert>
             )}
 
-            {/* Textfeld, um die JSON-Daten anzuzeigen */}
+            {/* Text field to display the JSON data */}
             {jsonData && (
                 <TextField
                     fullWidth
@@ -101,7 +100,7 @@ const ToolPage: React.FC = () => {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <DialogTitle id="alert-dialog-title">Warnung</DialogTitle>
+                <DialogTitle id="alert-dialog-title">Warning</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
                         {popupText}
@@ -109,7 +108,7 @@ const ToolPage: React.FC = () => {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} color="primary">
-                        Schließen
+                    Close
                     </Button>
                 </DialogActions>
             </Dialog>

@@ -3,17 +3,17 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 from datetime import datetime, timezone
 
-# SQLite-Datenbankverbindung
+# SQLite database connection
 SQLALCHEMY_DATABASE_URL = "sqlite:///server_info.db"
 
-# Erstelle eine SQLAlchemy-Engine
+# Create an SQLAlchemy engine
 engine = create_engine(
     SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
 )
 
 
 
-# Basisklasse für die Datenbankmodelle
+# Base class for the database models
 Base = declarative_base()
 
 # Datenbankmodelle
@@ -22,7 +22,7 @@ class URL(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     url = Column(String, unique=True, index=True)
-    last_checked = Column(DateTime, default=datetime.now(timezone.utc))  # Zeitpunkt der letzten Abfrage Hier habe ich was geender
+    last_checked = Column(DateTime, default=datetime.now(timezone.utc))  # Time of the last query I changed something here
     server_info = relationship("ServerInfo", back_populates="url")
 
 class ServerInfo(Base):
@@ -43,8 +43,8 @@ class Recommendation(Base):
     server_header = Column(String, unique=True)
     recommendation = Column(Text)
 
-# Erstelle die Tabellen in der Datenbank
+# Create the tables in the database
 Base.metadata.create_all(bind=engine)
 
-# Erstelle eine SessionLocal-Klasse, die später verwendet wird, um Sitzungen zu erstellen
+# Create a SessionLocal class that will be used later to create sessions
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
