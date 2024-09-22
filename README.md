@@ -25,15 +25,15 @@ Before you start the project, make sure you have the following dependencies inst
 1. Clone the Repository:
    ```bash
    git clone https://github.com/ShadowDataNerd/NextGenCrypto.git
-
+```
 2. Build and start the Docker image:
   ```bash
   cd NextGenCrypto
-
+```
 3. Navigate to the project directory:
   ```bash
   docker-compose up --build
-
+```
 ### Algorithms
 
 1. Kyber – An encryption-based algorithm from the NIST PQC competition, considered resilient against quantum computer attacks.
