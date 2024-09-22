@@ -8,7 +8,7 @@ The goal of this project is to provide an easy-to-understand and accessible plat
 This project was developed as part of a Master's program in the course "Cryptographic Algorithms" and offers an introduction to various post-quantum cryptography techniques, such as Kyber, Dilithium, and more.
 
 Part of this project is also a tool that takes your URL, checks it, and provides tips on how to make it PQC-ready. However, this tool is still very experimental and stores data about you. 
-**Please use it only if you agree to this***
+**Please use it only if you agree to this**
 
 ## Installation
 
