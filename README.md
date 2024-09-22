@@ -23,13 +23,16 @@ Before you start the project, make sure you have the following dependencies inst
 ### Steps
 
 1. Clone the Repository:
-   ```bash git clone https://github.com/ShadowDataNerd/NextGenCrypto.git```
+   ```bash
+   git clone https://github.com/ShadowDataNerd/NextGenCrypto.git```
 
-2. Build and start the Docker image:
-  ```bash cd NextGenCrypto```
+3. Build and start the Docker image:
+  ```bash
+cd NextGenCrypto```
 
-3. Navigate to the project directory:
-  ```bash docker-compose up --buildgit ```
+5. Navigate to the project directory:
+  ```bash
+docker-compose up --buildgit ```
 
 ### Algorithms
 
