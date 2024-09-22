@@ -1,6 +1,6 @@
 # NextGenCrypto
 
-## Projektbeschreibung
+## Project description
 
 **NextGenCrypto** is a collection of cryptographic algorithms and implementations focused on post-quantum cryptography.
 The goal of this project is to provide an easy-to-understand and accessible platform for exploring modern cryptographic methods that are resistant to quantum computer attacks.
