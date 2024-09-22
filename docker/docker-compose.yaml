@@ -5,7 +5,7 @@ services:
       context: ..
       dockerfile: ./docker/Dockerfile.frontend
       args:
-        - VITE_BACKEND_BASEURL=backend:5555
+        - VITE_BACKEND_BASEURL=http://188.166.165.112:5555/
     restart: always
     ports:
       - 80:80
