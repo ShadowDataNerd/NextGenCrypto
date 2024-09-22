@@ -54,14 +54,23 @@ const ToolPage: React.FC = () => {
     };
 
     return (
-        <Box sx={{ padding: 3 }}>
+        <Box sx={{ padding: 2 }}>
             <Typography variant="h2" gutterBottom>Post Quantum Cryptography</Typography>
-            <Typography variant="body1" gutterBottom>Check your URL</Typography>
+            <Box sx={{ marginBottom: 10 }} />
+            <Typography variant="h3" gutterBottom>Welcome to the URL Checker!</Typography>
+            <Typography sx={{ display: 'flex', marginBottom: 3, padding: 1 }}>
+                <p>
+                This tool checks which server is behind your URL and gives you a tip on how to make it PQC-ready, ensuring you're prepared for the future.
+                </p>
+            </Typography>
 
+
+
+            <Typography variant="body1" gutterBottom>Check your URL</Typography>
             {/* Input field for the URL */}
             <TextField
                 fullWidth
-                label="API-URL eingeben"
+                label="URL"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 variant="outlined"
@@ -70,7 +79,7 @@ const ToolPage: React.FC = () => {
             />
 
             {/* Button to call up the API */}
-            <Button variant="contained" color="primary" onClick={handleFetchApi}>
+            <Button variant="contained" onClick={handleFetchApi} sx={{ backgroundColor: 'white', color: 'black', '&:hover': {backgroundColor: 'rgba(255, 255, 255, 0.8)', }}}>
             Retrieve API
             </Button>
 
@@ -112,7 +121,9 @@ const ToolPage: React.FC = () => {
                     </Button>
                 </DialogActions>
             </Dialog>
+            <Box sx={{ marginBottom: 20 }} />
         </Box>
+        
     );
 };
 

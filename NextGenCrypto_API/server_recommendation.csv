@@ -1,2 +1,6 @@
 server_header,recommendation
-Apache/2.4.52 (Ubuntu),"Du kannst dich durch PQC ready machen, indem du deinen Webserver mit OpenSSL und Kyber absicherst."
+Apache/2.4.52 (Ubuntu),"You can prepare for PQC by securing your web server with OpenSSL and Kyber. A guide for this can be found on the official website or on GitHub at github.com/pq-crystals/kyber. Simply follow the steps described there."
+Apache,"You can prepare for PQC by securing your web server with OpenSSL and Kyber. A guide for this can be found on the official website or on GitHub at github.com/pq-crystals/kyber. Simply follow the steps described there."
+Ubuntu,"You can prepare for PQC by securing your web server with OpenSSL and Kyber. A guide for this can be found on the official website or on GitHub at github.com/pq-crystals/kyber. Simply follow the steps described there."
+nginx,"You can prepare for PQC by securing your web server with OpenSSL and Kyber. A guide for this can be found on the official website or on GitHub at github.com/pq-crystals/kyber. Simply follow the steps described there."
+nginx/1.27.1,"You can prepare for PQC by securing your web server with OpenSSL and Kyber. A guide for this can be found on the official website or on GitHub at github.com/pq-crystals/kyber. Simply follow the steps described there."
