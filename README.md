@@ -49,7 +49,7 @@ Contributions to this project are welcome. If you find bugs, want to suggest new
 
 # Private Use License
 
-Copyright (c) [2024] [Christopher Otto]
+Copyright (c) 2024 Christopher Otto
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to use
